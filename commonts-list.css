@@ -1,0 +1,82 @@
+.nav-bar {
+    height: 50px;
+    background-color: #3270b3;
+}
+
+.nav-bar h3 {
+    float: left;
+    margin: 0;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 15px;
+}
+
+.use-box {
+    float: right;
+    color: #fff;
+    line-height: 50px;
+    padding-right: 15px;
+}
+
+.use-box>img {
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+}
+
+.project-detail {
+    padding: 10px;
+}
+
+.project-detail>div {
+    display: inline-block;
+    margin-bottom: 10px;
+    min-width: 300px;
+}
+
+.project-detail>div>span,
+.search-box>div>label {
+    width: 114px;
+    text-align: right;
+    display: inline-block;
+}
+
+div.search-box {
+    display: block;
+}
+
+.search-box>div {
+    float: left;
+    min-width: 300px;
+}
+
+.ip-input {
+    display: inline-block;
+    width: 130px;
+    font-weight: 400;
+    vertical-align: middle;
+    border: 1px solid #d9d9d9;
+    padding: .225rem .625rem;
+    font-size: .8125rem;
+    line-height: 1.5;
+    border-radius: 4px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+.ip-input:not(:disabled):not(.disabled):hover {
+    border-color: #108ee9
+}
+
+.ip-input.focus,.ip-input:focus,.ip-input:not(:disabled):not(.disabled).active,.ip-input:not(:disabled):not(.disabled):active {
+    outline: 0;
+    border-color: #108ee9;
+    box-shadow: 0 0 0 .15rem rgba(16,142,233,.5)
+}
+
+.ip-input.disabled,.ip-input:disabled {
+    background: #e9ecef;
+    opacity: .65
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+            <c:forEach items="${resultList}" var="entry" varStatus="vs">
+                <tr id='tr_<c:out value="${vs.count}"/>'>
+                    <td>
+                        <c:out value="${vs.count}" />
+                    </td>
+                    <td><input type="text" value="<c:out value='${entry.name}' />" readonly="readonly"
+                            unselectable="on" /></td>
+                    <td><input type="text" value="<c:out value='${entry.gender}' />" readonly="readonly"
+                            unselectable="on" /></td>
+                    <td><input type="text" value="<c:out value='${entry.age}' />" readonly="readonly"
+                            unselectable="on" /></td>
+                </tr>
+            </c:forEach>
+        </table>
+        <br />
+        <div id="pageDiv">
+            <input id="headPage" type="button" value="首页" onclick="paging(1)" />
+            <input id="lastPage" type="button" value="上一页" onclick="lastPaging()" />
+
+            <span id="pageSpace"></span>
+
+            <input id="nextPage" type="button" value="下一页" onclick="nextPaging()" />
+            <input id="tailPage" type="button" value="尾页" onclick="tailPaging()" />
+
+            &nbsp;&nbsp;&nbsp;&nbsp;跳转到<input id="jumpPage" type="text" value="" size="4" />页
+            &nbsp;<input type="button" id="jumpPageConfirm" value="确定" onclick="jumpPaging()" />
+            &nbsp;&nbsp;&nbsp;&nbsp;共<span id="totalRecords"></span>条
+        </div>
+    </form>
+
+    <script>
+        //共多少行记录，+将字符串转为数字类型
+        var resultCount = + "<c:out value='${resultCount}'/>";
+        var pageCount;//多少页 
+        var tailCount;//尾页多少行
+        var currentPage = 1;//当前页，控制上一页/下一页，初始化为第1页
+
+        //页面加载后
+        $(function () {
+
+            //更新记录总数
+            document.getElementById("totalRecords").innerHTML = resultCount;
+
+            //结果页面已经加载，准备分页
+            pageCount = Math.ceil(resultCount / 10);
+            tailCount = resultCount % 10;
+
+            //分页显示，页面加载后，初始为第1页
+            paging(1);
+        });
+
+
+        /**
+         * 分页函数，每页10条记录
+         * 分页面板，举例：首页 上一页  1 2 3 …… 8 9 10 …… 17 18 19  下一页  尾页  跳转到  页  确定   共185条
+         * @param page 显示第几页
+         */
+        function paging(page) {
+            //更新当前页变量，+转为数字类型
+            currentPage = + page;
+
+            //显示当前页
+            displayPage(currentPage);
+
+            //刷新页数字样式, 举例：1 2 3 …… 8 9 10 …… 17 18 19
+            var pagePanel = "";
+            //是否显示省略号 
+            var ellipsisFlag = 0;
+            for (var i = 1; i <= pageCount; i++) {
+                //当前页
+                if (i == currentPage) {
+                    pagePanel += i + "";
+                } else {
+                    //首页前三页，当前页前后页，最后三页不能省略
+                    if (i <= 3 || i <= (currentPage + 1) && i >= (currentPage - 1) || i >= (pageCount - 2)) {
+                        pagePanel += "&nbsp;<a href='javascript:void(0)' onclick='paging(" + i + ")'>" + i + "</a>&nbsp;";
+                        ellipsisFlag = 0;
+                    } else {
+                        if (ellipsisFlag == 0) {
+                            pagePanel += "...";
+                            ellipsisFlag = 1;
+                        }
+                    }
+                }
+            }
+            document.getElementById("pageSpace").innerHTML = pagePanel;
+        }
+
+
+        /**
+         * 显示指定的页，隐藏其他的页，每页10行
+         * @param page 显示第几页
+         */
+        function displayPage(page) {
+            //解释：
+            //1: 1 - 10  == 1 + (1-1)*10 -- 1*10 
+            //2: 11- 20  == 1 + (2-1)*10 -- 2*10
+            //3: 21 - 30 == 1 + (3-1)*10 -- 3*10
+
+            //resultCount <= 10;
+            //page < pageCount;
+            //page = pageCount;
+            var beginRow = 1 + (page - 1) * 10;//显示开始行
+            var endRow = resultCount;//显示结束行，初始为最后一行
+
+            //如果不是尾页
+            if (page < pageCount) {
+                endRow = page * 10;
+            }
+
+            for (var i = 1; i < beginRow; i++) {
+                $("#tr_" + i).hide();
+            }
+
+            for (var i = beginRow; i <= endRow; i++) {
+                $("#tr_" + i).show();
+            }
+
+            for (var i = endRow + 1; i <= resultCount; i++) {
+                $("#tr_" + i).hide();
+            }
+        }
+
+
+        /**
+         * 上一页
+         */
+        function lastPaging() {
+            if (currentPage == 1) {
+                return;
+            } else {
+                paging(currentPage - 1);
+            }
+        }
+
+        /**
+         * 下一页
+         */
+        function nextPaging() {
+            if (currentPage == pageCount) {
+                return;
+            } else {
+                paging(currentPage + 1);
+            }
+        }
+
+        /**
+         * 尾页
+         */
+        function tailPaging() {
+            paging(pageCount);
+        }
+
+        /**
+         * 跳转到第几页
+         */
+        function jumpPaging() {
+            var pageInput = + document.getElementById("jumpPage").value;
+            if (!pageInput) {
+                return;
+            }
+
+            if (pageInput < 1 || pageInput > pageCount) {
+                alert("请输入正确的页：" + 1 + " ~ " + pageCount);
+                return;
+            }
+
+            paging(pageInput);
+        }
+
+    </script>
+</body>
+
+</html>

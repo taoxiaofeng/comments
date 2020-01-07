@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>分页组件</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: 'Microsoft YaHei';
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        table {
+            margin: 10px 0;
+            width: 100%;
+            min-height: 500px;
+            border-collapse: collapse;
+            border-color: #ccc;
+            color: #808696;
+        }
+
+        table th,
+        table tr {
+            width: calc(100% / 3);
+        }
+
+        table tbody th:nth-child(2n) {
+            background: #eee;
+        }
+
+        .c-pagination {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            margin: 10px 0;
+            height: 54px;
+        }
+
+        .pagination-text {
+            flex: 1;
+            display: -webkit-flex;
+            height: 54px;
+            line-height: 54px;
+            padding-left: 5px;
+            box-sizing: border-box;
+        }
+
+        .pagination-text .page-size {
+            display: inline-block;
+            margin-right: 5px;
+            height: 54px;
+            line-height: 54px;
+            font-size: 12px;
+        }
+
+        .pagination-text .page-size span {
+            display: inline-block;
+            padding: 0 3px;
+            font-size: 12px;
+            font-family: "Microsoft YaHei";
+            font-family: 'Microsoft YaHei';
+            color: #333;
+        }
+
+        .pagination-text .page-list {
+            display: inline-block;
+            height: 54px;
+            line-height: 54px;
+            font-family: 'Microsoft YaHei';
+            font-size: 12px;
+        }
+
+        .pagination-text .page-list select {
+            display: inline-block;
+            background-color: #fff;
+            border-color: #ccc;
+            font-size: 12px;
+            padding: 6px 12px;
+            margin-top: -10px;
+            margin-right: 3px;
+            margin-left: 3px;
+            color: #808696;
+        }
+
+        .pagination-text .page-list select:hover {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #adadad;
+        }
+
+        .pagination-number {
+            flex: 1;
+            height: 54px;
+            line-height: 54px;
+            vertical-align: middle;
+            text-align: right;
+            padding-right: 5px;
+            box-sizing: border-box;
+            align-self: flex-end;
+        }
+
+        .pagination-number li {
+            display: inline-flex;
+            align-content: center;
+        }
+
+        .pagination-number li span {
+            display: block;
+            flex: 1;
+            font-size: 12px;
+            position: relative;
+            font-family: 'Microsoft YaHei';
+            padding: 6px 12px;
+            margin-left: -6px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .pagination-number li:hover span {
+            background-color: #eee;
+            border-color: #ddd;
+            color: #1181D9 !important;
+        }
+
+        .pagination-number li.active span {
+            border-color: #337ab7;
+            color: #1181D9 !important;
+            margin-right: 6px;
+        }
+
+        .pagination-number li.prev span {
+            margin-left: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .pagination-number li.next span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    </style>
+    <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+    <table border="1" id="table">
+        <thead>
+            <tr>
+                <th>item1</th>
+                <th>item2</th>
+                <th>item3</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div class="c-pagination">
+        <div class="pagination-text">
+            <div class="page-size">显示第<span class="start-num" id="startNum">0</span>到第<span class="end-num"
+                    id="endNum">0</span>条记录，总共<span class="total" id="total">0</span>条记录</div>
+            <div class="page-list">
+                每页显示<select name="" id="changeNumber">
+                    <option value="0">10</option>
+                    <option value="1">25</option>
+                    <option value="2">50</option>
+                    <option value="3">100</option>
+
+                </select>条记录
+            </div>
+        </div>
+        <ul class="pagination-number" id="paginationList">
+            <li class="prev" id="prev">
+                <span>‹</span>
+            </li>
+            <li class="next" id="next">
+                <span>›</span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(function () {
+            var data = [
+                {
+                    "id": 5002,
+                    "logType": 1,
+                    "operTime": 1578408298000,
+                    "userId": 655,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4697,
+                    "username": "fengxiaotao"
+                },
+                {
+                    "id": 5001,
+                    "logType": 1,
+                    "operTime": 1578397985000,
+                    "userId": -200,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4696,
+                    "username": "admin"
+                },
+                {
+                    "id": 5000,
+                    "logType": 1,
+                    "operTime": 1578397249000,
+                    "userId": -200,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4695,
+                    "username": "admin"
+                },
+                {
+                    "id": 4999,
+                    "logType": 1,
+                    "operTime": 1578397201000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4694,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4998,
+                    "logType": 0,
+                    "operTime": 1578391352000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "系统配置管理",
+                    "operObject": "更新",
+                    "operName": "系统配置管理",
+                    "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4693,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4996,
+                    "logType": 0,
+                    "operTime": 1578387576000,
+                    "userId": -100,
+                    "sysName": "用户中心",
+                    "modelName": "院区科室",
+                    "operObject": null,
+                    "operName": "添加",
+                    "msg": "接收科室血管外科放射介入科成功",
+                    "level": 1,
+                    "serverIp": null,
+                    "detailId": null,
+                    "username": "system"
+                },
+                {
+                    "id": 4997,
+                    "logType": 0,
+                    "operTime": 1578387576000,
+                    "userId": -100,
+                    "sysName": "用户中心",
+                    "modelName": "院区科室",
+                    "operObject": null,
+                    "operName": "添加",
+                    "msg": "接收科室血管外科放射介入科成功",
+                    "level": 1,
+                    "serverIp": null,
+                    "detailId": null,
+                    "username": "system"
+                },
+                {
+                    "id": 4995,
+                    "logType": 1,
+                    "operTime": 1578386996000,
+                    "userId": 655,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4692,
+                    "username": "fengxiaotao"
+                },
+                {
+                    "id": 4994,
+                    "logType": 0,
+                    "operTime": 1578386099000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "系统配置管理",
+                    "operObject": "更新",
+                    "operName": "系统配置管理",
+                    "msg": "修改系统设置成功：干预返回的xml中drug_no拼接",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4691,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4993,
+                    "logType": 1,
+                    "operTime": 1578385923000,
+                    "userId": 0,
+                    "sysName": "处方点评",
+                    "modelName": "数据上报",
+                    "operObject": null,
+                    "operName": "结束",
+                    "msg": "定时自动上报任务功能被设置为'已关闭', 自动上报任务不启动，直接退出",
+                    "level": 1,
+                    "serverIp": "10.1.1.89",
+                    "detailId": null,
+                    "username": null
+                },
+                {
+                    "id": 4992,
+                    "logType": 1,
+                    "operTime": 1578385750000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4690,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4991,
+                    "logType": 0,
+                    "operTime": 1578384140000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "系统配置管理",
+                    "operObject": "更新",
+                    "operName": "系统配置管理",
+                    "msg": "修改系统设置成功：干预返回的xml中drug_no拼接",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4689,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4990,
+                    "logType": 0,
+                    "operTime": 1578378245000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "系统配置管理",
+                    "operObject": "更新",
+                    "operName": "系统配置管理",
+                    "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4688,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4989,
+                    "logType": 0,
+                    "operTime": 1578376209000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "系统配置管理",
+                    "operObject": "更新",
+                    "operName": "系统配置管理",
+                    "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4687,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4988,
+                    "logType": 0,
+                    "operTime": 1578376168000,
+                    "userId": -300,
+                    "sysName": "用户中心",
+                    "modelName": "系统配置管理",
+                    "operObject": "更新",
+                    "operName": "系统配置管理",
+                    "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4686,
+                    "username": "ipharmacarextss"
+                },
+                {
+                    "id": 4987,
+                    "logType": 1,
+                    "operTime": 1578375749000,
+                    "userId": 6,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4685,
+                    "username": "wangmm"
+                },
+                {
+                    "id": 4986,
+                    "logType": 1,
+                    "operTime": 1578368749000,
+                    "userId": -200,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4684,
+                    "username": "admin"
+                },
+                {
+                    "id": 4985,
+                    "logType": 1,
+                    "operTime": 1578368716000,
+                    "userId": -200,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4683,
+                    "username": "admin"
+                },
+                {
+                    "id": 4984,
+                    "logType": 1,
+                    "operTime": 1578368317000,
+                    "userId": -200,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4682,
+                    "username": "admin"
+                },
+                {
+                    "id": 4983,
+                    "logType": 1,
+                    "operTime": 1578368189000,
+                    "userId": -200,
+                    "sysName": "用户中心",
+                    "modelName": "登录",
+                    "operObject": "登录",
+                    "operName": "登录",
+                    "msg": "用户登陆code:200",
+                    "level": 1,
+                    "serverIp": "127.0.0.1",
+                    "detailId": 4681,
+                    "username": "admin"
+                }
+            ];
+            // $.ajax({
+            //     url: "./FeHelper-20200107224753.json",
+            //     async: true,
+            //     success: function (result) {
+            //         data = result;
+            //     }
+            // });
+            
+            var pagination = {
+                // 表体数据
+                data: data,
+                // 总条数
+                total: 0,
+                // 总页数
+                totalPages: 0,
+                // 当前页码
+                pageNumber: 1,
+                // 每页数据条数
+                pageSize: 10,
+                // 开始数据的位置
+                start: 1,
+                // 结束数据的位置
+                end: 10,
+                // 可供选择的每页的行数
+                pageList: [10, 25, 50, 100],
+                init: function (opt) {
+                    var that = this;
+                    // 计算总条数
+                    that.total = that.data.length;
+                    opt.totalNum.html(that.total);
+                    that.loadPageData(opt, that);
+                    // 计算页数
+                    that.calculateNumberList(opt);
+                    that.showTableData(opt);
+                    opt.startNum.html(that.start);
+                    opt.endNum.html(that.end);
+                    // 改变数据条数
+                    opt.changeList.on('change', function (e) {
+                        var _this = this;
+                        that.pageNumber = 1;
+                        that.changeNumber(that, _this, opt);
+
+                    });
+                    // 上一页
+                    opt.paginationList.find("li.prev").on('click', function () {
+                        var _this = this;
+                        $(_this).siblings().removeClass('active');
+                        $(_this).removeClass("active");
+                        if (that.pageNumber == 1) {
+                            that.pageNumber = that.totalPages;
+                        } else {
+                            that.pageNumber--;
+                        }
+                        that.loadPageData(opt, that);
+                        var page = opt.paginationList.find("li.page");
+                        for (let i = 0; i < page.length; i++) {
+                            if (i == that.pageNumber - 1) {
+                                $(page[i]).addClass("active");
+                            }
+                        }
+                        that.showTableData(opt);
+                    });
+                    // 下一页
+                    opt.paginationList.find("li.next").on('click', function () {
+                        var _this = this;
+                        $(_this).siblings('li').removeClass("active");
+                        $(_this).removeClass("active");
+                        if (that.pageNumber == that.totalPages) {
+                            that.pageNumber = 1;
+                        } else {
+                            that.pageNumber++;
+                        }
+                        that.loadPageData(opt, that);
+                        var page = opt.paginationList.find("li.page");
+                        for (let i = 0; i < page.length; i++) {
+                            if (i == that.pageNumber - 1) {
+                                $(page[i]).addClass("active");
+                            }
+                        }
+                        that.showTableData(opt);
+                    });
+
+                },
+                // 改变开始位置，结束位置
+                loadPageData: function (opt, that) {
+                    that.start = (that.pageNumber - 1) * that.pageSize + 1;
+                    that.end = that.pageNumber * that.pageSize;
+                    if (that.end > that.total) {
+                        that.end = that.total;
+                    }
+                    opt.startNum.html(that.start);
+                    opt.endNum.html(that.end);
+                },
+                // 计算页码数量
+                calculateNumberList: function (opt) {
+                    var that = this;
+                    // 计算总的页数 = 数据总条数 / 每页显示的条数
+                    that.totalPages = Math.ceil(that.total / that.pageSize);
+                    // 创建页数标签
+                    opt.paginationList.find("li.page").remove();
+                    if (that.pageSize >= that.total || that.data.length <= 1) {
+                        opt.paginationList.hide();
+                    } else {
+                        opt.paginationList.show();
+                        for (let i = 0; i < that.totalPages; i++) {
+                            opt.next.before("<li class='page'><span>" + parseInt(i + 1) + "</span></li>");
+                        }
+                        opt.paginationList
+                            .find("li:nth-child(2)")
+                            .addClass("active");
+                    }
+                    // 点击页码改变数据
+                    opt.paginationList.find("li.page").on("click", function () {
+                        var _this = this;
+                        var _this = this;
+                        $(_this)
+                            .siblings()
+                            .removeClass("active");
+                        $(_this).addClass("active");
+                        that.pageNumber = parseInt(
+                            $(_this)
+                                .find("span")
+                                .text()
+                        );
+                        that.loadPageData(opt, that);
+                        that.showTableData(opt);
+
+                    });
+                },
+                // 展示表格数据
+                showTableData: function (opt) {
+                    var arr = [],
+                        that = this,
+                        len;
+                    arr = that.data.slice(that.start - 1, that.end);
+                    that.initTable(opt, arr);
+
+                },
+                initTable(opt, arr) {
+                    opt.table
+                        .find("tbody")
+                        .find("tr")
+                        .remove();
+                    arr.forEach(function (item, index) {
+                        var oTr = $("<tr></tr>");
+                        for (let key in item) {
+                            oTr.append("<td>" + item[key] + "</td>");
+                        }
+                        opt.table.find("tbody").append(oTr);
+                    });
+                },
+                changeNumber: function (that, target, opt) {
+                    that.pageSize = parseInt($(target)
+                        .find("option:selected")
+                        .text());
+                    if (that.pageSize >= that.total) {
+                        that.pageSize = that.total
+                        that.start = 1;
+                        that.pageNumber = 1
+                    }
+                    that.loadPageData(opt, that);
+                    that.calculateNumberList(opt);
+                    that.showTableData(opt);
+                }
+            };
+            var option = {
+                startNum: $(".start-num"),
+                endNum: $(".end-num"),
+                totalNum: $(".total"),
+                changeList: $("#changeNumber"),
+                paginationList: $("#paginationList"),
+                prev: $(".prev"),
+                next: $(".next"),
+                table: $('#table')
+            };
+            pagination.init(option);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table-plugin</title>
+    <style>
+        #table-box table {
+            border: 1px solid #D9D9D9;
+            border-collapse: collapse;
+        }
+
+        #table-box table td,
+        #table-box table th {
+            padding: 5px;
+            border: 1px solid #D9D9D9;
+            border-collapse: collapse;
+        }
+    </style>
+    <script src="./lib/jquery-1.12.4.js"></script>
+    <script src="./jQuery-table.js"></script>
+</head>
+
+<body>
+    <div id="table-box">
+
+    </div>
+
+    <script>
+        var theadList = ['医院', '处方时间', '处方号', '科室', '年龄', '诊断', '注射剂', '点评药师', '是否合理', '结果', '问题代码', '操作', '测试'], tbodyList = [
+            {
+                "id": 5002,
+                "logType": 1,
+                "operTime": 1578408298000,
+                "userId": 655,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4697,
+                "username": "fengxiaotao"
+            },
+            {
+                "id": 5001,
+                "logType": 1,
+                "operTime": 1578397985000,
+                "userId": -200,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4696,
+                "username": "admin"
+            },
+            {
+                "id": 5000,
+                "logType": 1,
+                "operTime": 1578397249000,
+                "userId": -200,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4695,
+                "username": "admin"
+            },
+            {
+                "id": 4999,
+                "logType": 1,
+                "operTime": 1578397201000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4694,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4998,
+                "logType": 0,
+                "operTime": 1578391352000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "系统配置管理",
+                "operObject": "更新",
+                "operName": "系统配置管理",
+                "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4693,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4996,
+                "logType": 0,
+                "operTime": 1578387576000,
+                "userId": -100,
+                "sysName": "用户中心",
+                "modelName": "院区科室",
+                "operObject": null,
+                "operName": "添加",
+                "msg": "接收科室血管外科放射介入科成功",
+                "level": 1,
+                "serverIp": null,
+                "detailId": null,
+                "username": "system"
+            },
+            {
+                "id": 4997,
+                "logType": 0,
+                "operTime": 1578387576000,
+                "userId": -100,
+                "sysName": "用户中心",
+                "modelName": "院区科室",
+                "operObject": null,
+                "operName": "添加",
+                "msg": "接收科室血管外科放射介入科成功",
+                "level": 1,
+                "serverIp": null,
+                "detailId": null,
+                "username": "system"
+            },
+            {
+                "id": 4995,
+                "logType": 1,
+                "operTime": 1578386996000,
+                "userId": 655,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4692,
+                "username": "fengxiaotao"
+            },
+            {
+                "id": 4994,
+                "logType": 0,
+                "operTime": 1578386099000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "系统配置管理",
+                "operObject": "更新",
+                "operName": "系统配置管理",
+                "msg": "修改系统设置成功：干预返回的xml中drug_no拼接",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4691,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4993,
+                "logType": 1,
+                "operTime": 1578385923000,
+                "userId": 0,
+                "sysName": "处方点评",
+                "modelName": "数据上报",
+                "operObject": null,
+                "operName": "结束",
+                "msg": "定时自动上报任务功能被设置为'已关闭', 自动上报任务不启动，直接退出",
+                "level": 1,
+                "serverIp": "10.1.1.89",
+                "detailId": null,
+                "username": null
+            },
+            {
+                "id": 4992,
+                "logType": 1,
+                "operTime": 1578385750000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4690,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4991,
+                "logType": 0,
+                "operTime": 1578384140000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "系统配置管理",
+                "operObject": "更新",
+                "operName": "系统配置管理",
+                "msg": "修改系统设置成功：干预返回的xml中drug_no拼接",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4689,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4990,
+                "logType": 0,
+                "operTime": 1578378245000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "系统配置管理",
+                "operObject": "更新",
+                "operName": "系统配置管理",
+                "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4688,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4989,
+                "logType": 0,
+                "operTime": 1578376209000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "系统配置管理",
+                "operObject": "更新",
+                "operName": "系统配置管理",
+                "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4687,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4988,
+                "logType": 0,
+                "operTime": 1578376168000,
+                "userId": -300,
+                "sysName": "用户中心",
+                "modelName": "系统配置管理",
+                "operObject": "更新",
+                "operName": "系统配置管理",
+                "msg": "修改系统设置成功：门诊干预规则警示适用对象",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4686,
+                "username": "ipharmacarextss"
+            },
+            {
+                "id": 4987,
+                "logType": 1,
+                "operTime": 1578375749000,
+                "userId": 6,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4685,
+                "username": "wangmm"
+            },
+            {
+                "id": 4986,
+                "logType": 1,
+                "operTime": 1578368749000,
+                "userId": -200,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4684,
+                "username": "admin"
+            },
+            {
+                "id": 4985,
+                "logType": 1,
+                "operTime": 1578368716000,
+                "userId": -200,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4683,
+                "username": "admin"
+            },
+            {
+                "id": 4984,
+                "logType": 1,
+                "operTime": 1578368317000,
+                "userId": -200,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4682,
+                "username": "admin"
+            },
+            {
+                "id": 4983,
+                "logType": 1,
+                "operTime": 1578368189000,
+                "userId": -200,
+                "sysName": "用户中心",
+                "modelName": "登录",
+                "operObject": "登录",
+                "operName": "登录",
+                "msg": "用户登陆code:200",
+                "level": 1,
+                "serverIp": "127.0.0.1",
+                "detailId": 4681,
+                "username": "admin"
+            }
+        ];
+        $("#table-box").table(theadList, tbodyList);
+
+    </script>
+
+</body>
+
+</html>

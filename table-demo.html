@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table 演示</title>
+    <script src="./lib/jquery-1.12.4.js"></script>
+    <style>
+        table {
+            border: 1px solid #D9D9D9;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            border: 1px solid #D9D9D9;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="获取数据" id="j_btnGetData">
+    <table>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>地址</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody id="j_tbData"></tbody>
+
+    </table>
+    <script>
+        $(function () {
+            // 模拟数据
+            var data = [{
+                name: '张三',
+                url: 'http://www.baidu.com',
+                type: '测试人物'
+            }, {
+                name: '李四',
+                url: 'http://www.baidu.com',
+                type: '测试李四'
+            }, {
+                name: '王五',
+                url: 'http://www.baidu.com',
+                type: '测试王五'
+            }, {
+                name: '六七',
+                url: 'http://www.baidu.com',
+                type: '测试六七'
+            }]
+
+            // 给获取数据按钮设置一个事件
+            $('#j_btnGetData').click(function () {
+                // 1、 html() 方法
+                // 设置内容，内容中有标签会解析；会覆盖原来的内容的
+                // var list = [];
+                // for (let i = 0; i < data.length; i++) {
+                //     // 生成tr
+                //     list.push("<tr>");
+                //     // 生成td
+                //     for (const key in data[i]) {
+                //         if (data[i].hasOwnProperty(key)) {
+                //             list.push('<td>');
+                //             list.push(data[i][key]);
+                //             list.push('</td>');
+                //         }
+                //     }
+                //     list.push("</tr>");
+                // }
+                // console.log(list.join(""));
+                // $('#j_tbData').html(list.join(""));
+
+
+                //2、 $（）方法   有个缺点 ： 当我点击多次添加或添加多个重复的tr  除非每次添加的时候 remove 掉前面添加的
+                for (let i = 0; i < data.length; i++) {
+                   var $tr = $("<tr><td>" + data[i]['name'] + "</td><td>" + data[i]['url'] + "</td><td>" + data[i]['type'] + "</td></tr>");
+                   // 把创建出来的$tr 添加到tbody中
+                   $('#j_tbData').append( $tr );
+                }
+            });
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
