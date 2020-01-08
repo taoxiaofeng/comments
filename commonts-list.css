@@ -1,3 +1,7 @@
+.commonts-list {
+    position: relative;
+}
+
 .nav-bar {
     height: 50px;
     background-color: #3270b3;
@@ -27,14 +31,51 @@
     vertical-align: text-top;
 }
 
-.project-detail {
+.table-box {
+    position: relative;
+    height: 700px;
     padding: 10px;
+    margin: auto;
+    background-color: white;
+    /* border: 1px solid #D9D9D9; */
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+.table-box table {
+    border: 1px solid #D9D9D9;
+    border-collapse: collapse;
+}
+
+.table-box table th,
+.table-box table td {
+    padding: 6px;
+    min-width: 90px;
+    text-align: left;
+    word-break: break-word;
+    word-break: break-all;
+    border: 1px solid #D9D9D9;
+    border-collapse: collapse;
+}
+
+.table-box table th {
+    font-size: 15px;
+    height: 30px;
+    background: #f0f0f0;
+}
+
+
+.project-detail {
+    width: 1110px;
+    height: 64px;
+    padding: 10px 10px 0;
 }
 
 .project-detail>div {
     display: inline-block;
-    margin-bottom: 10px;
     min-width: 300px;
+    height: 30px;
+    line-height: 30px;
 }
 
 .project-detail>div>span,
@@ -53,30 +94,122 @@ div.search-box {
     min-width: 300px;
 }
 
+.search-box button {
+    float: right;
+    height: 30px;
+    width: 60px;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+}
+
 .ip-input {
     display: inline-block;
     width: 130px;
+    height: 28px;
     font-weight: 400;
     vertical-align: middle;
-    border: 1px solid #d9d9d9;
-    padding: .225rem .625rem;
-    font-size: .8125rem;
-    line-height: 1.5;
+    border: 1px solid #D9D9D9;
     border-radius: 4px;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
 .ip-input:not(:disabled):not(.disabled):hover {
     border-color: #108ee9
 }
 
-.ip-input.focus,.ip-input:focus,.ip-input:not(:disabled):not(.disabled).active,.ip-input:not(:disabled):not(.disabled):active {
+.ip-input.focus,
+.ip-input:focus,
+.ip-input:not(:disabled):not(.disabled).active,
+.ip-input:not(:disabled):not(.disabled):active {
     outline: 0;
     border-color: #108ee9;
-    box-shadow: 0 0 0 .15rem rgba(16,142,233,.5)
+    box-shadow: 0 0 0 .15rem rgba(16, 142, 243, .5)
 }
 
-.ip-input.disabled,.ip-input:disabled {
+.ip-input.disabled,
+.ip-input:disabled {
     background: #e9ecef;
     opacity: .65
+}
+
+#grid1,
+#grid2 {
+    width: 1110px;
+    table-layout: fixed;
+}
+
+
+/* 这里hidden是用于隐藏滚动条  */
+#theadDiv {
+    width: 1110px;
+}
+
+#tbodyDiv {
+    width: 1127px;
+    /*增加了滚动条的宽度*/
+}
+
+#theadDiv {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    overflow: hidden;
+}
+
+#tbodyDiv {
+    position: absolute;
+    top: 53px;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    overflow: auto;
+}
+
+#view,
+#appeal,
+#withoutDemur {
+    color: #2037FB;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+#view:focus,
+#view:active,
+#appeal:focus,
+#appeal:active,
+#withoutDemur:focus,
+#withoutDemur:active {
+    opacity: .6;
+}
+
+.pagination {
+    padding: 0 10px;
+    width: 1105px;
+    height: 46px;
+    margin: 0 10px;
+    line-height: 46px;
+    border: 1px solid #D9D9D9;
+}
+
+.pagination select,
+.pagination input,
+.pagination button {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    font-weight: 400;
+    vertical-align: middle;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+}
+
+.pagination button img {
+    width: 13px;
+    height: 13px;
+    vertical-align: text-top;
+}
+
+.pagination input {
+    width: 48px;
 }
