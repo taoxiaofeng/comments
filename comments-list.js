@@ -21,8 +21,9 @@ $(function () {
      */
     var tbodyList = [];
     function setTbody() {
+        var currentTime = new Date().getTime();
         for (var i = 0; i < tbodyList.length; i++) {
-            var $tr = $("<tr><td>" + tbodyList[i]['id'] + "</td><td>" + tbodyList[i]['logType'] + "</td><td>" + tbodyList[i]['operTime'] + "</td><td>" + tbodyList[i]['userId'] + "</td><td>" + tbodyList[i]['sysName'] + "</td><td>" + tbodyList[i]['modelName'] + "</td><td>" + tbodyList[i]['operObject'] + "</td><td>" + tbodyList[i]['operName'] + "</td><td>" + tbodyList[i]['msg'] + "</td><td>" + tbodyList[i]['serverIp'] + "</td><td>" + tbodyList[i]['detailId'] + "</td><td><span id='view'>查看</span><br/><span id='withoutDemur'>无异议</span><span id='appeal'>申诉</span></td></tr>");
+            var $tr = $("<tr><td>" + tbodyList[i]['id'] + "</td><td>" + tbodyList[i]['logType'] + "</td><td>" + tbodyList[i]['operTime'] + "</td><td>" + tbodyList[i]['userId'] + "</td><td>" + tbodyList[i]['sysName'] + "</td><td>" + tbodyList[i]['modelName'] + "</td><td>" + tbodyList[i]['operObject'] + "</td><td>" + tbodyList[i]['operName'] + "</td><td>" + tbodyList[i]['msg'] + "</td><td>" + tbodyList[i]['serverIp'] + "</td><td>" + tbodyList[i]['detailId'] + "</td><td><span class='operation' id='view" + '_' + currentTime + "'>查看</span><br/><span class='operation' id='withoutDemur" + '_' + currentTime + "'>无异议</span><span class='operation' id='appeal" + '_' + currentTime + "'>申诉</span></td></tr>");
             // 把创建出来的$tr 添加到tbody中
             $('#_tbody').append($tr);
         }
@@ -41,14 +42,39 @@ $(function () {
 
         // 使用事件委托 给 tr 元素绑定事件
         $('tr').click(function (e) {
-            e.target.onclick = function (currentEl) {
-                stopBubble(currentEl);
-                console.log(currentEl.target.innerText)
+            if (e.target.id) {
+                var currentElId = '#' + e.target.id;
+                _operation(currentElId, e);
             }
+            // e.target.onclick = function ($event) {
+            //     stopBubble($event);
+            //     console.log($event.target.innerText)
+
+            //     if($event.target.innerText == '申诉') {
+            //         $(".box_container").show();
+            //         $("#kabulore-layer").layer();
+            //     }
+            // }
         });
 
     };
 
+    function _operation(currentElId, e) {
+        (function () {
+            if (e.target.innerText == '申诉') {
+                $(".box_container").show();
+                $("#kabulore-layer").layer();
+                /**
+                * 关闭 申诉框
+                */
+                $('.close-icon').click(function () {
+                    
+                    $('.box_container').hide();
+                  
+                });
+            }
+        }(e));
+    };
 
     /**
      * 获取table 数据
@@ -82,7 +108,7 @@ $(function () {
     /**
      * 检索逻辑
      */
-    
+
     $('#query').click(function () {
         $.queryParams.recipeId = $('#recipe_id').val();
         $.queryParams.reviewStatus = $('#review_status').val();
@@ -93,44 +119,46 @@ $(function () {
     /**
      * 调整每页展示数据数量
      */
-    $('#pageSize').change(function() {
+    $('#pageSize').change(function () {
         console.log($('#pageSize').val());
     });
 
     /**
      * 返回首页
      */
-    $('#firstPage').click(function() {
+    $('#firstPage').click(function () {
         console.log($('#firstPage').val());
     });
 
     /**
      * 上一页
      */
-    $('#prevPage').click(function() {
+    $('#prevPage').click(function () {
         console.log($('#prevPage').val());
     });
 
     /**
      * 下一页
      */
-    $('#nextPage').click(function() {
+    $('#nextPage').click(function () {
         console.log($('#nextPage').val());
     });
 
     /**
      * 跳转到尾页
      */
-    $('#lastPage').click(function() {
+    $('#lastPage').click(function () {
         console.log($('#lastPage').val());
     });
 
     /**
      * 页码跳转
      */
-    $('#skipBtn').click(function() {
+    $('#skipBtn').click(function () {
         console.log($('#skipInput').val());
     });
+
+
 
 
 

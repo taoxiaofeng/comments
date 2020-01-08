@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./commonts-list.css">
     <script src="./lib/jquery-1.12.4.min.js"></script>
+    <script src="./lib/layer.js"></script>
 </head>
 
 <body>
@@ -20,67 +21,94 @@
                 <span>测试账号</span>
             </div>
         </div>
-        <div class="project-detail">
-            <div><span>项目名称：</span>医生处方点评项目</div>
-            <div><span>患者号：</span>1234567890</div>
-            <div class="search-box">
-                <div>
-                    <label for="recipe_id">处方号：</label>
-                    <input class="ip-input" type="text" id="recipe_id">
+        <div>
+            <div class="project-detail">
+                <div><span>项目名称：</span>医生处方点评项目</div>
+                <div><span>患者号：</span>1234567890</div>
+                <div class="search-box">
+                    <div>
+                        <label for="recipe_id">处方号：</label>
+                        <input class="ip-input" type="text" id="recipe_id">
+                    </div>
+                    <div>
+                        <label for="review_status">医生审阅状态：</label>
+                        <!-- <input class="ip-input" type="text" id="review_status"> -->
+                        <select class="ip-input" id="review_status">
+                            <option value="全部" selected>全部</option>
+                            <option value="未处理">未处理</option>
+                            <option value="无异议">无异议</option>
+                            <option value="已申诉">已申诉</option>
+                        </select>
+                    </div>
+                    <button id="query">检索</button>
                 </div>
-                <div>
-                    <label for="review_status">医生审阅状态：</label>
-                    <!-- <input class="ip-input" type="text" id="review_status"> -->
-                    <select class="ip-input" id="review_status">
-                        <option value="全部" selected>全部</option>
-                        <option value="未处理">未处理</option>
-                        <option value="无异议">无异议</option>
-                        <option value="已申诉">已申诉</option>
+            </div>
+            <div class="table-box">
+                <div id="theadDiv">
+                    <table id="grid1" class="fixedTable">
+                        <thead id="_thead">
+
+                        </thead>
+
+                    </table>
+                </div>
+                <div id="tbodyDiv">
+                    <table id="grid2">
+                        <tbody id="_tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="pagination">
+                <div style="float: left;">
+                    <span>共 96 条</span>
+                    <select class="ip-input" id="pageSize">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
                     </select>
                 </div>
-                <button id="query">检索</button>
-            </div>
-        </div>
-        <div class="table-box">
-            <div id="theadDiv">
-                <table id="grid1" class="fixedTable">
-                    <thead id="_thead">
-
-                    </thead>
-
-                </table>
-            </div>
-            <div id="tbodyDiv">
-                <table id="grid2">
-                    <tbody id="_tbody">
-
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-        <div class="pagination">
-            <div style="float: left;">
-                <span>共 96 条</span>
-                <select class="ip-input" id="pageSize">
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-            </div>
-            <div style="float: right;">
-                <span>1/5页</span>
-                <button id="firstPage"><img src="./assets/first-page-icon.png" alt=""></button>
-                <button id="prevPage"><img src="./assets/prev-page-icon.png" alt=""></button>
-                <button id="nextPage"><img src="./assets/next-page-icon.png" alt=""></button>
-                <button id="lastPage"><img src="./assets/last-page-icon.png" alt=""></button>
-                <input type="text" id="skipInput">
-                <button id="skipBtn">跳转</button>
+                <div style="float: right;">
+                    <span>1/5页</span>
+                    <button id="firstPage"><img src="./assets/first-page-icon.png" alt=""></button>
+                    <button id="prevPage"><img src="./assets/prev-page-icon.png" alt=""></button>
+                    <button id="nextPage"><img src="./assets/next-page-icon.png" alt=""></button>
+                    <button id="lastPage"><img src="./assets/last-page-icon.png" alt=""></button>
+                    <input type="text" id="skipInput">
+                    <button id="skipBtn">跳转</button>
+                </div>
             </div>
         </div>
     </div>
     <script src="./comments-list.js"></script>
+    <div id="kabulore-layer">
+        <div class="box_container">
+            <div class="header-box">
+                <img style="width: 22px; height: 22px;vertical-align: text-bottom;" src="./assets/rl-icon.png" alt="">
+                <span style="color: #304662; font-size: 15px; font-weight: 600;">请填写申述内容</span>
+                <img class="close-icon" src="./assets/close.png">
+            </div>
+            <div class="complaint-content">
+                <div>
+                    <div style="width: 48px; float: left;text-align: center;font-size: 18px;
+                    font-weight: 600;">
+                        <div>申</div>
+                        <div>诉</div>
+                        <div>内</div>
+                        <div>容</div>
+                    </div>
+                    <textarea></textarea>
+                </div>
+                <div style="text-align: center;margin: 5px 0;">
+                    <button>保存</button>
+                    <button>关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

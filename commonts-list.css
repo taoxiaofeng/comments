@@ -165,7 +165,7 @@ div.search-box {
     overflow: auto;
 }
 
-#view,
+/* #view,
 #appeal,
 #withoutDemur {
     color: #2037FB;
@@ -179,6 +179,17 @@ div.search-box {
 #appeal:active,
 #withoutDemur:focus,
 #withoutDemur:active {
+    opacity: .6;
+} */
+
+.operation {
+    color: #2037FB;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.operation:active,
+.operation:focus {
     opacity: .6;
 }
 
@@ -213,3 +224,59 @@ div.search-box {
 .pagination input {
     width: 48px;
 }
+
+.box_container {
+    width: 900px;
+    height: 400px;
+    background: #EEF4F5;
+    border-radius: 4px;
+    display: none;
+}
+
+.box_container .header-box {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.close-icon {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+
+.close-icon:active,
+.close-icon:focus {
+    opacity: .6;
+}
+
+.complaint-content {
+    height: 342px;
+    padding: 5px 0;
+}
+
+.complaint-content textarea {
+    margin: 0px;
+    height: 293px;
+    width: 840px;
+    resize: none;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+}
+
+.complaint-content button {
+    height: 30px;
+    width: 60px;
+    border: 1px solid #73ACC6;
+    border-radius: 4px;
+}
+
+
+
+/* .complaint-content span {
+    writing-mode: vertical-rl;
+} */
