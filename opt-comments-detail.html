@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点评列表</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./commonts.css">
+    <script src="./lib/jquery-1.12.4.min.js"></script>
+    <script src="./lib/layer.js"></script>
+    <script src="./lib/md5.js"></script>
+</head>
+
+<body>
+    <div class="opt-commonts-detail">
+        <div class="nav-bar">
+            <h3 style="font-size: 18px;">处方点评</h3>
+            <span style="margin-left:30px; line-height:50px;">点评项目/****</span>
+            <div class="use-box">
+                <img src="./assets/user_icon.png" alt="">
+                <span>测试账号</span>
+            </div>
+        </div>
+        <div>
+            <div style="width:70%;float: left;">
+                <div class="patient-info">
+                    <div>
+                        <span>张三/87岁/女/180cm/80kg</span>
+                    </div>
+                    <div>
+                        <span class="title">诊断：</span>
+                        <span class="content"></span>
+                    </div>
+                    <div>
+                        <span class="title">过敏：</span>
+                        <span class="content"></span>
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="title">患者号：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">就诊流水号：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">处方号：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">科室：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">医生：</span>
+                            <span class="content"></span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span class="title">是否怀孕：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">孕期：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">是否哺乳：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">出生日期：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">出生时体重：</span>
+                            <span class="content"></span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span class="title">体表面积：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">CCR：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">费用类别：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">患者电话：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">患者地址：</span>
+                            <span class="content"></span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span class="title">处方时间：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">处方类型：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">处方来源：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">医生职称：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">审核药师：</span>
+                            <span class="content"></span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span class="title">调配药师：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">核发药师：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">是否透析：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">贴数：</span>
+                            <span class="content"></span>
+                        </li>
+                        <li>
+                            <span class="title">单贴进入：</span>
+                            <span class="content"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab">
+                    <div class="tab-wrap">
+                        <ul class="tab-menu">
+                            <li class="active"><a href="javascript:;">草药处方</a></li>
+                            <li><a href="javascript:;">检验记录</a></li>
+                            <li><a href="javascript:;">手术记录</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="content show">
+                            <div class="table-box">
+                                <div id="theadDiv">
+                                    <table id="grid1" class="fixedTable">
+                                        <thead id="_thead">
+
+                                        </thead>
+
+                                    </table>
+                                </div>
+                                <div id="tbodyDiv">
+                                    <table id="grid2">
+                                        <tbody id="_tbody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="pagination">
+                                <div style="float: left;">
+                                    <span>共 96 条</span>
+                                    <select class="ip-input" id="pageSize">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                                <div style="float: right;">
+                                    <span>1/5页</span>
+                                    <button id="firstPage"><img src="./assets/first-page-icon.png" alt=""></button>
+                                    <button id="prevPage"><img src="./assets/prev-page-icon.png" alt=""></button>
+                                    <button id="nextPage"><img src="./assets/next-page-icon.png" alt=""></button>
+                                    <button id="lastPage"><img src="./assets/last-page-icon.png" alt=""></button>
+                                    <input type="text" id="skipInput">
+                                    <button id="skipBtn">跳转</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">content2</div>
+                        <div class="content">content3</div>
+                    </div>
+                </div>
+            </div>
+            <div id="msgBox">
+                <h3>审核结果</h3>
+                <div>
+                    <h4>医生</h4>
+                    <div>用药建议-调整用药：</div>
+                    <div>用药建议-调整用药：</div>
+                </div>
+                <ul>
+                    <li>
+                        <em class="warning-III "></em>
+                        <span>[9级]分析审方测试：不存在变量</span>
+                    </li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="kabulore-layer">
+        <div class="box_container">
+            <div class="header-box">
+                <img style="width: 22px; height: 22px;vertical-align: text-bottom;" src="./assets/rl-icon.png" alt="">
+                <span style="color: #304662; font-size: 15px; font-weight: 600;">请填写申述内容</span>
+                <img class="close-appeal close-icon" src="./assets/close.png">
+            </div>
+            <div class="complaint-content">
+                <div>
+                    <div style="width: 48px; float: left;text-align: center;font-size: 18px;
+                    font-weight: 600;">
+                        <div>申</div>
+                        <div>诉</div>
+                        <div>内</div>
+                        <div>容</div>
+                    </div>
+                    <textarea id="appeal-content"></textarea>
+                </div>
+                <div style="text-align: center;margin: 5px 0;">
+                    <button id="save-appeal">保存</button>
+                    <button class="close-appeal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./opt-comments-detail.js"></script>
+</body>
+
+</html>

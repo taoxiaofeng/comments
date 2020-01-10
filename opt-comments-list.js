@@ -23,7 +23,7 @@ $(function () {
     function setTbody() {
         var currentTime = new Date().getTime();
         for (var i = 0; i < tbodyList.length; i++) {
-            var $tr = $("<tr><td>" + tbodyList[i]['id'] + "</td><td>" + tbodyList[i]['logType'] + "</td><td>" + tbodyList[i]['operTime'] + "</td><td>" + tbodyList[i]['userId'] + "</td><td>" + tbodyList[i]['sysName'] + "</td><td>" + tbodyList[i]['modelName'] + "</td><td>" + tbodyList[i]['operObject'] + "</td><td>" + tbodyList[i]['operName'] + "</td><td>" + tbodyList[i]['msg'] + "</td><td>" + tbodyList[i]['serverIp'] + "</td><td>" + tbodyList[i]['detailId'] + "</td><td><span class='operation' id='view" + '_' + currentTime + "'>查看</span><br/><span class='operation' id='withoutDemur" + '_' + currentTime + "'>无异议</span><span class='operation' id='appeal" + '_' + currentTime + "'>申诉</span></td></tr>");
+            var $tr = $("<tr><td>" + tbodyList[i]['id'] + "</td><td>" + tbodyList[i]['logType'] + "</td><td>" + tbodyList[i]['operTime'] + "</td><td>" + tbodyList[i]['userId'] + "</td><td>" + tbodyList[i]['sysName'] + "</td><td>" + tbodyList[i]['modelName'] + "</td><td>" + tbodyList[i]['operObject'] + "</td><td>" + tbodyList[i]['operName'] + "</td><td>" + tbodyList[i]['msg'] + "</td><td>" + tbodyList[i]['serverIp'] + "</td><td>" + tbodyList[i]['detailId'] + "</td><td><span class='operation' id='view'>查看</span><br/><span class='operation' id='withoutDemur'>无异议</span><span class='operation' id='appeal'>申述</span></td></tr>");
             // 把创建出来的$tr 添加到tbody中
             $('#_tbody').append($tr);
         }
@@ -41,40 +41,56 @@ $(function () {
         // })
 
         // 使用事件委托 给 tr 元素绑定事件
-        $('tr').click(function (e) {
-            if (e.target.id) {
-                var currentElId = '#' + e.target.id;
-                _operation(currentElId, e);
-            }
-            // e.target.onclick = function ($event) {
-            //     stopBubble($event);
-            //     console.log($event.target.innerText)
+        // $('tr').click(function (e) {
+        //     if (e.target.id) {
+        //         var currentElId = '#' + e.target.id;
+        //         // _operation(currentElId, e);
+        //     }
+        //     e.target.onclick = function ($event) {
+        //         stopBubble($event);
+        //         console.log($event.target.innerText)
 
-            //     if($event.target.innerText == '申诉') {
-            //         $(".box_container").show();
-            //         $("#kabulore-layer").layer();
-            //     }
-            // }
+        //         if($event.target.innerText == '申述') {
+        //             $(".box_container").show();
+        //             $("#kabulore-layer").layer();
+        //         }
+        //     }
+        // });
+
+        $('#_tbody').on('click', 'tr span#view', function (e) {
+            console.log('view:', e)
+        })
+
+        $('#_tbody').on('click', 'tr span#withoutDemur', function (e) {
+            console.log('withoutDemur:', e)
+        })
+
+        $('#_tbody').on('click', 'tr span#appeal', function (e) {
+            console.log('appeal:', e)
+            $(".box_container").show();
+            $("#kabulore-layer").layer();
+        })
+
+        // 关闭申述框
+        $('.close-appeal').click(function () {
+            closeAppealBox();
+        });
+
+        // 保存申述
+        $('#save-appeal').click(function() {
+            console.log($('#appeal-content').val());
+
+            // 保存成功后关闭申述弹框
+            closeAppealBox();
         });
 
     };
 
-    function _operation(currentElId, e) {
-        (function () {
-            if (e.target.innerText == '申诉') {
-                $(".box_container").show();
-                $("#kabulore-layer").layer();
-                /**
-                * 关闭 申诉框
-                */
-                $('.close-icon').click(function () {
+    function closeAppealBox() {
+        $('.box_container').hide();
+        $('#layerBox').remove();
+    }
 
-                    $('.box_container').hide();
-
-                });
-            }
-        }(e));
-    };
 
     /**
      * 获取table 数据
@@ -82,7 +98,7 @@ $(function () {
     function getTableData() {
         $.ajax({
             url: "./FeHelper-20200107224753.json", success: function (result) {
-                tbodyList = JSON.parse(result);
+                tbodyList = result;
                 if (tbodyList && tbodyList.length > 0) {
                     setTbody();
                 }
@@ -163,23 +179,36 @@ $(function () {
 
 
     (function init() {
-        // login();
+        login();
         setThead();
         getTableData();
-        
+
     }());
 
     // TODO  获取数据需要登录接口， 写一个测试接口
     function login() {
+        var params = {
+            name: "fengxiaotao",
+            password: md5('111111'),
+            code: ""
+        }
+        // $.post("/api/v1/currentUser", params, function (json) {
+        //     console.log('登录：', json);
+        // })
+
         $.ajax({
+            url: "/api/v1/currentUser",
+            async: true,
             type: "POST",
-            url: "http://10.1.1.89:9999/syscenter/api/v1/currentUser",
-            data: { name: "fengxiaotao", password: "96e79218965eb72c92a549dd5a330112", code: "" },
-            dataType: "json"
-        }).done(function (res) {
-            console.log('登录：', res);
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify(params),
+            success: function (data) {
+                console.log('登录：', data);
+            }
         });
     }
+
 
 
 
