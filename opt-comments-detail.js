@@ -149,8 +149,203 @@ $(function () {
         console.log($('#skipInput').val());
     });
 
+    // 获取申述意见
+    $('#saveOpportuinty').click(function () {
+        console.log($('#opportuinty').val());
+    });
+
+    // 设置诊断记录
+    function getOptDetails() {
+        $.ajax({
+            url: "./optSearchHeadDetail.json", success: function (res) {
+                if (res && res.obj) {
+                    if (res.obj.hasOwnProperty('exams')) {
+                        setExams(res.obj.exams);
+                    }
+                    if (res.obj.hasOwnProperty('messages')) {
+                        setMsg(res.obj.messages);
+                    }
+                    if (res.obj.hasOwnProperty('patientInfo')) {
+                        setPatientInfo(res.obj.patientInfo);
+                    }
+                }
+            }
+        });
+    };
+
+    // 设置检验
+    function setExams(exams) {
+        var list  = '';
+        for (var i = 0; i < exams.length; i++) {
+        //    list +=
+            
+        }
+    }
+
+    //设置警示信息
+    function setMsg(msg) {
+        var list = '';
+        for (var i = 0; i < msg.length; i++) {
+            list += '<li>' +
+            '<em class="' + gradeIdentification(msg[i].severity) + '"></em>' +
+            '<span>[' + msg[i].severity + '级]' + msg[i].drug + ':' + msg[i].message + '</span>' +
+            '</li>';
+        }
+        $('#msgList').append(list)
+    }
+
+    // 返回 警示等级标识
+    function gradeIdentification(severity) {
+        if (severity >= 5) {
+            return 'warning-III';
+        } else if (severity >= 3 && severity <= 4) {
+            return 'warning-II';
+        } else if (severity <= 2) {
+            return 'warning-I';
+        }
+    }
 
 
+    // 设置患者信息
+    function setPatientInfo(patient) {
+        var diagnose = '', allergy = '';
+        // 拼装诊断数据
+        if (patient.hasOwnProperty('diagnoses') && patient.diagnoses) {
+            diagnose = assemblyData(patient.diagnoses, 'originalDiagnose');
+        }
+
+        var patientInfoDom = '<div>' +
+            '<span>' + patient.patientName + (patient.age ? ' / ' + patient.age : ' / -岁 ') + (patient.sex ? ' / ' + patient.sex : '-') + (patient.height ? ' / ' + patient.height : ' / -cm ') + (patient.weight ? ' / ' + patient.weight : ' / -kg ') + '</span>' +
+            '</div >' +
+            '<div>' +
+            '<span class="title">诊断：</span>' +
+            '<span class="content">' + diagnose + '</span>' +
+            '</div>' +
+            '<div>' +
+            '<span class="title">过敏：</span>' +
+            '<span class="content"></span>' +
+            '</div>' +
+            '<ul>' +
+            '<li>' +
+            '<span class="title">患者号：</span>' +
+            '<span class="content">' + patient.patientId + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">就诊流水号：</span>' +
+            '<span class="content">' + patient.eventNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">处方号：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">科室：</span>' +
+            '<span class="content">' + patient.deptName + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">医生：</span>' +
+            '<span class="content">' + patient.docName + '</span>' +
+            '</li>' +
+            '</ul>' +
+            '<ul>' +
+            '<li>' +
+            '<span class="title">是否怀孕：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">孕期：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">是否哺乳：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">出生日期：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">出生时体重：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '</ul>' +
+            '<ul>' +
+            '<li>' +
+            '<span class="title">体表面积：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">CCR：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">费用类别：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">患者电话：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">患者地址：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '</ul>' +
+            '<ul>' +
+            '<li>' +
+            '<span class="title">处方时间：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">处方类型：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">处方来源：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">医生职称：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">审核药师：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '</ul>' +
+            '<ul>' +
+            '<li>' +
+            '<span class="title">调配药师：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">核发药师：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">是否透析：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">贴数：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">单贴进入：</span>' +
+            '<span class="content">' + patient.recipeNo + '</span>' +
+            '</li>' +
+            '</ul>'
+        $('#patientInfo').append(patientInfoDom)
+    }
+
+    //  拼装诊断 / 过敏 数据
+    function assemblyData(arr, key) {
+        var tempList = [];
+        for (var i = 0; i < arr.length; i++) {
+            tempList.push(arr[i][key]);
+        }
+        return tempList.join(',');
+    }
 
 
     (function init() {
@@ -158,7 +353,7 @@ $(function () {
         setThead();
         getTableData();
         setTab();
-        setMsgBox();
+        getOptDetails();
     }());
 
     // TODO  获取数据需要登录接口， 写一个测试接口
@@ -188,7 +383,7 @@ $(function () {
     // 选项卡逻辑
     function setTab() {
         var aLi = $('.tab-menu').find('li');
-        var aDiv = $('.tab-content').find('div');
+        var aDiv = $('.tab-content');
         for (var i = 0; i < aLi.length; i++) {
             $(aLi[i])[0].index = i;
             $(aLi[i]).click(function () {
@@ -202,12 +397,6 @@ $(function () {
             });
         }
     }
-
-    // 设置警示信息盒子大小
-    function setMsgBox() {
-    
-    }
-
 
 }(window.jQuery));
 

@@ -25,128 +25,8 @@
         </div>
         <div>
             <div style="width:70%;float: left;">
-                <div class="patient-info">
-                    <div>
-                        <span>张三/87岁/女/180cm/80kg</span>
-                    </div>
-                    <div>
-                        <span class="title">诊断：</span>
-                        <span class="content"></span>
-                    </div>
-                    <div>
-                        <span class="title">过敏：</span>
-                        <span class="content"></span>
-                    </div>
-                    <ul>
-                        <li>
-                            <span class="title">患者号：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">就诊流水号：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">处方号：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">科室：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">医生：</span>
-                            <span class="content"></span>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <span class="title">是否怀孕：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">孕期：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">是否哺乳：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">出生日期：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">出生时体重：</span>
-                            <span class="content"></span>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <span class="title">体表面积：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">CCR：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">费用类别：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">患者电话：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">患者地址：</span>
-                            <span class="content"></span>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <span class="title">处方时间：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">处方类型：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">处方来源：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">医生职称：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">审核药师：</span>
-                            <span class="content"></span>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <span class="title">调配药师：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">核发药师：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">是否透析：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">贴数：</span>
-                            <span class="content"></span>
-                        </li>
-                        <li>
-                            <span class="title">单贴进入：</span>
-                            <span class="content"></span>
-                        </li>
-                    </ul>
+                <div class="patient-info" id="patientInfo">
+                    
                 </div>
                 <div class="tab">
                     <div class="tab-wrap">
@@ -156,15 +36,14 @@
                             <li><a href="javascript:;">手术记录</a></li>
                         </ul>
                     </div>
-                    <div class="tab-content">
-                        <div class="content show">
+                    <div class="tab-box">
+                        <div class="tab-content show">
                             <div class="table-box">
                                 <div id="theadDiv">
                                     <table id="grid1" class="fixedTable">
                                         <thead id="_thead">
 
                                         </thead>
-
                                     </table>
                                 </div>
                                 <div id="tbodyDiv">
@@ -197,26 +76,69 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="content">content2</div>
-                        <div class="content">content3</div>
+                        <div class="tab-content" id="inspectionRecord">
+                            <div>
+                                <ul>
+                                    <li>
+                                        <span class="title">检验项目：</span>
+                                        <span class="content">血常规</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">报告日期：</span>
+                                        <span class="content">血常规</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">采样日期：</span>
+                                        <span class="content">血常规</span>
+                                    </li>
+                                </ul>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th width="24.5%">指标名称</th>
+                                            <th width="26%">检验结果</th>
+                                            <th width="14.5%">单位</th>
+                                            <th width="35%">参考结果</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-content">content3</div>
                     </div>
                 </div>
             </div>
             <div id="msgBox">
-                <h3>审核结果</h3>
-                <div>
-                    <h4>医生</h4>
-                    <div>用药建议-调整用药：</div>
-                    <div>用药建议-调整用药：</div>
+                <h4>审核结果</h4>
+                <div class="complaints-opinion">
+                    <h4 style="color:#C80E2C;">医生申诉</h4>
+                    <ul>
+                        <li><span><b>
+                                    <医生账号：ipharmacare>
+                                </b>申诉意见：</span></li>
+                        <li><span><b>
+                                    <医生账号：xtss>
+                                </b>申诉意见：</span></li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>
-                        <em class="warning-III "></em>
-                        <span>[9级]分析审方测试：不存在变量</span>
-                    </li>
-                    <li></li>
-                    <li></li>
+                <ul class="medicine-suggested">
+                    <li><span><b>用药建议-调整用药：</b>111111</span></li>
+                    <li><span><b>用药建议-调整用药：</b>222222</span></li>
                 </ul>
+                <ul class="msg-list" id="msgList">
+                </ul>
+                <div class="msg-input">
+                    <textarea id="opportuinty" class="ip-input" placeholder="如有必要，请输入申述意见..."></textarea>
+                    <button id="saveOpportuinty">保存</button>
+                </div>
             </div>
         </div>
     </div>

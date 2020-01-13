@@ -1,0 +1,1248 @@
+{
+    "callbackType": null,
+    "forwardUrl": null,
+    "message": "操作成功!",
+    "navTabId": null,
+    "obj": {
+        "ERMUrl": "www.baidu.com?hospital_code=H0003&event_no=45637713&patient_id=4563771&source=住院&user_name=admin",
+        "auditForm": {
+            "id": "354695838380851200",
+            "projectId": "52fba1eba63e49b587cae4406c92bd7e",
+            "projectName": "zy20200107b",
+            "type": 4,
+            "zoneId": "1"
+        },
+        "dtoCydpIptDaignoses": [
+            {
+                "diagnosisCategory": "主要诊断",
+                "diagnosisCode": "M3",
+                "diagnosisName": "CSS综合征",
+                "diagnosisTime": "1532552360000",
+                "diagnosisType": "出院诊断",
+                "docName": "丁晶晶"
+            },
+            {
+                "diagnosisCategory": "次要诊断",
+                "diagnosisCode": "M3",
+                "diagnosisName": "干燥综合征",
+                "diagnosisTime": "1532552360000",
+                "diagnosisType": "出院诊断",
+                "docName": "丁晶晶"
+            },
+            {
+                "diagnosisCategory": "次要诊断",
+                "diagnosisCode": "M8",
+                "diagnosisName": "骨质疏松症",
+                "diagnosisTime": "1532565610000",
+                "diagnosisType": "出院诊断",
+                "docName": "赵婷婷"
+            }
+        ],
+        "ermButtonName": "电子病历",
+        "exams": [
+            {
+                "examData": [
+                    {
+                        "examResult": "0.18",
+                        "examResultUnit": "mg/L",
+                        "indicatorName": "D二聚体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "<0.5"
+                    },
+                    {
+                        "examResult": "0.79",
+                        "examResultUnit": null,
+                        "indicatorName": "国际标准化比值",
+                        "indicatorNameMap": null,
+                        "referenceResult": null
+                    },
+                    {
+                        "examResult": "24.2",
+                        "examResultUnit": "秒",
+                        "indicatorName": "活化部分凝血活酶时间",
+                        "indicatorNameMap": null,
+                        "referenceResult": "25--31.3"
+                    },
+                    {
+                        "examResult": "2.0",
+                        "examResultUnit": "g/l",
+                        "indicatorName": "纤维蛋白原",
+                        "indicatorNameMap": null,
+                        "referenceResult": "2--4"
+                    },
+                    {
+                        "examResult": "20.2",
+                        "examResultUnit": "秒",
+                        "indicatorName": "凝血酶时间",
+                        "indicatorNameMap": null,
+                        "referenceResult": "13-21"
+                    },
+                    {
+                        "examResult": "9.0",
+                        "examResultUnit": "秒",
+                        "indicatorName": "凝血酶原时间",
+                        "indicatorNameMap": null,
+                        "referenceResult": "10-15"
+                    }
+                ],
+                "examItem": "血液",
+                "reportTime": null,
+                "sampleCollectTime": "1532385457000"
+            },
+            {
+                "examData": [
+                    {
+                        "examResult": "18.2",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "谷酰转肽酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "7-35"
+                    },
+                    {
+                        "examResult": "1.79",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "H-胆固醇",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.94-2"
+                    },
+                    {
+                        "examResult": "57.5",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "碱性磷酸酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "47-185"
+                    },
+                    {
+                        "examResult": "63",
+                        "examResultUnit": "umol/L",
+                        "indicatorName": "肌酐",
+                        "indicatorNameMap": null,
+                        "referenceResult": "44--106"
+                    },
+                    {
+                        "examResult": "4.49",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "胆固醇",
+                        "indicatorNameMap": null,
+                        "referenceResult": "2.9-5.72"
+                    },
+                    {
+                        "examResult": "3.7",
+                        "examResultUnit": "mg/L",
+                        "indicatorName": "C反应蛋白",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0-8"
+                    },
+                    {
+                        "examResult": "3.0",
+                        "examResultUnit": "umol/L",
+                        "indicatorName": "总胆汁酸",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0--15"
+                    },
+                    {
+                        "examResult": "1.71",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "载脂蛋白AⅠ",
+                        "indicatorNameMap": null,
+                        "referenceResult": "1-2.05"
+                    },
+                    {
+                        "examResult": "2.22",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "L-胆固醇",
+                        "indicatorNameMap": null,
+                        "referenceResult": "1.89-3.1"
+                    },
+                    {
+                        "examResult": "3.89",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "钾",
+                        "indicatorNameMap": null,
+                        "referenceResult": "3.5--5.5"
+                    },
+                    {
+                        "examResult": "6.6",
+                        "examResultUnit": "umol/L",
+                        "indicatorName": "总胆红素",
+                        "indicatorNameMap": null,
+                        "referenceResult": "5--20.5"
+                    },
+                    {
+                        "examResult": "22.4",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "球蛋白",
+                        "indicatorNameMap": null,
+                        "referenceResult": "20--40"
+                    },
+                    {
+                        "examResult": "10.1",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "免疫球蛋白IgG",
+                        "indicatorNameMap": null,
+                        "referenceResult": "8-16"
+                    },
+                    {
+                        "examResult": "1.65",
+                        "examResultUnit": null,
+                        "indicatorName": "白/球比例",
+                        "indicatorNameMap": null,
+                        "referenceResult": "1.2--2.4"
+                    },
+                    {
+                        "examResult": "16.1",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "谷草转氨酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "8-40"
+                    },
+                    {
+                        "examResult": "26.4",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "总二氧化碳",
+                        "indicatorNameMap": null,
+                        "referenceResult": "22-32"
+                    },
+                    {
+                        "examResult": "6.1",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "尿素",
+                        "indicatorNameMap": null,
+                        "referenceResult": "2.9--7.5"
+                    },
+                    {
+                        "examResult": "0.92",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "补体C3",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.8-1.6"
+                    },
+                    {
+                        "examResult": "36.9",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "白蛋白",
+                        "indicatorNameMap": null,
+                        "referenceResult": "40--55"
+                    },
+                    {
+                        "examResult": "59.3",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "总蛋白",
+                        "indicatorNameMap": null,
+                        "referenceResult": "65--85"
+                    },
+                    {
+                        "examResult": "106.1",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "氯",
+                        "indicatorNameMap": null,
+                        "referenceResult": "98--108"
+                    },
+                    {
+                        "examResult": "40.6",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "亮氨酸氨酞酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "30-70"
+                    },
+                    {
+                        "examResult": "145.3",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "钠",
+                        "indicatorNameMap": null,
+                        "referenceResult": "135--145"
+                    },
+                    {
+                        "examResult": "1.2",
+                        "examResultUnit": "umol/L",
+                        "indicatorName": "直接胆红素",
+                        "indicatorNameMap": null,
+                        "referenceResult": "1.7--6.8"
+                    },
+                    {
+                        "examResult": "2.17",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "免疫球蛋白IgA",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.7-3.3"
+                    },
+                    {
+                        "examResult": "167",
+                        "examResultUnit": "IU/ml",
+                        "indicatorName": "免疫球蛋白IgE",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0-100"
+                    },
+                    {
+                        "examResult": "1.38",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "甘油三酯",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.56-1.7"
+                    },
+                    {
+                        "examResult": "3.60",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "葡萄糖",
+                        "indicatorNameMap": null,
+                        "referenceResult": "3.9--6.1"
+                    },
+                    {
+                        "examResult": "0.18",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "补体C4",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.2-0.4"
+                    },
+                    {
+                        "examResult": "86.7",
+                        "examResultUnit": null,
+                        "indicatorName": "eGFR(MDRD)",
+                        "indicatorNameMap": null,
+                        "referenceResult": ">90"
+                    },
+                    {
+                        "examResult": "7.5",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "腺苷脱氨酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0--25"
+                    },
+                    {
+                        "examResult": "0.71",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "载脂蛋白B",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.6-1.2"
+                    },
+                    {
+                        "examResult": "234",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "乳酸脱氢酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "109--245"
+                    },
+                    {
+                        "examResult": "245",
+                        "examResultUnit": "umol/L",
+                        "indicatorName": "尿酸",
+                        "indicatorNameMap": null,
+                        "referenceResult": "90--420"
+                    },
+                    {
+                        "examResult": "0.69",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "免疫球蛋白IgM",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.5-2.2"
+                    },
+                    {
+                        "examResult": "12.5",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "谷丙转氨酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "5-40"
+                    },
+                    {
+                        "examResult": "6.7",
+                        "examResultUnit": "KU/L",
+                        "indicatorName": "胆碱酯酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "3.7-13.2"
+                    },
+                    {
+                        "examResult": ".",
+                        "examResultUnit": null,
+                        "indicatorName": "ml/min/1.73m^2",
+                        "indicatorNameMap": null,
+                        "referenceResult": null
+                    },
+                    {
+                        "examResult": "1.10",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "磷",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.96--1.62"
+                    },
+                    {
+                        "examResult": "2.29",
+                        "examResultUnit": "mmol/L",
+                        "indicatorName": "总钙",
+                        "indicatorNameMap": null,
+                        "referenceResult": "2.25--2.75"
+                    }
+                ],
+                "examItem": "血液",
+                "reportTime": null,
+                "sampleCollectTime": "1532298844000"
+            },
+            {
+                "examData": [
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "尿胆原",
+                        "indicatorNameMap": null,
+                        "referenceResult": "弱阳性"
+                    },
+                    {
+                        "examResult": "阴性",
+                        "examResultUnit": null,
+                        "indicatorName": "尿酮体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性",
+                        "examResultUnit": null,
+                        "indicatorName": "胆红素",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性",
+                        "examResultUnit": null,
+                        "indicatorName": "亚硝酸盐",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性",
+                        "examResultUnit": null,
+                        "indicatorName": "白细胞酯酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "尿葡萄糖",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    }
+                ],
+                "examItem": "尿液",
+                "reportTime": null,
+                "sampleCollectTime": null
+            },
+            {
+                "examData": [
+                    {
+                        "examResult": "阴性",
+                        "examResultUnit": null,
+                        "indicatorName": "隐血试验",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（-）"
+                    },
+                    {
+                        "examResult": "黄色",
+                        "examResultUnit": null,
+                        "indicatorName": "粪便颜色",
+                        "indicatorNameMap": null,
+                        "referenceResult": null
+                    },
+                    {
+                        "examResult": "未见虫卵及其它",
+                        "examResultUnit": null,
+                        "indicatorName": "镜检",
+                        "indicatorNameMap": null,
+                        "referenceResult": null
+                    },
+                    {
+                        "examResult": "软便",
+                        "examResultUnit": null,
+                        "indicatorName": "粪便性状",
+                        "indicatorNameMap": null,
+                        "referenceResult": null
+                    }
+                ],
+                "examItem": "粪便",
+                "reportTime": null,
+                "sampleCollectTime": null
+            },
+            {
+                "examData": [
+                    {
+                        "examResult": "<20.0",
+                        "examResultUnit": "IU/mL",
+                        "indicatorName": "类风湿因子",
+                        "indicatorNameMap": null,
+                        "referenceResult": "≤20"
+                    },
+                    {
+                        "examResult": "阴性（ - ）",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核抗体HEP2/猴肝着丝点型",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗PCNA抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性（ - ）",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核抗体HEP2/猴肝均质型",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性（ - ）",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核抗体HEP2/猴肝胞浆抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗PM-Scl抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗Jo-1抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性（ - ）",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核抗体HEP2/猴肝颗粒型",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核糖体P蛋白抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗AMA-M2抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗Scl-70抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核小体抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗SM抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗组蛋白抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性（ - ）",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核抗体HEP2/猴肝核仁型",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性（ - ）",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核抗体HEP2/猴肝核膜型",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗U1-RNP/Sm抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗SSB抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗CENP-B抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性（ - ）",
+                        "examResultUnit": null,
+                        "indicatorName": "抗核抗体HEP2/猴肝其他",
+                        "indicatorNameMap": null,
+                        "referenceResult": null
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗Ro-52抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗dsDNA抗体(印迹法)",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "阴性(-)",
+                        "examResultUnit": null,
+                        "indicatorName": "抗SSA抗体",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "0.001",
+                        "examResultUnit": "RU/ml",
+                        "indicatorName": "中性粒细胞胞浆抗体GBM定量",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0--20"
+                    },
+                    {
+                        "examResult": "阴性（－）",
+                        "examResultUnit": null,
+                        "indicatorName": "中性粒胞浆抗体P",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    },
+                    {
+                        "examResult": "1.534",
+                        "examResultUnit": "Ru/ml",
+                        "indicatorName": "中性粒细胞胞浆抗体PR3定量",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0--20"
+                    },
+                    {
+                        "examResult": "3.117",
+                        "examResultUnit": "Ru/ml",
+                        "indicatorName": "中性粒细胞胞浆抗体MPO定量",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0--20"
+                    },
+                    {
+                        "examResult": "弱阳性(±)",
+                        "examResultUnit": null,
+                        "indicatorName": "中性粒胞浆抗体C",
+                        "indicatorNameMap": null,
+                        "referenceResult": "阴性（－）"
+                    }
+                ],
+                "examItem": "血液",
+                "reportTime": null,
+                "sampleCollectTime": "1532385476000"
+            },
+            {
+                "examData": [
+                    {
+                        "examResult": "2",
+                        "examResultUnit": "mm/h",
+                        "indicatorName": "血沉（仪器法）",
+                        "indicatorNameMap": null,
+                        "referenceResult": "<20"
+                    }
+                ],
+                "examItem": "血液",
+                "reportTime": null,
+                "sampleCollectTime": "1532385498000"
+            },
+            {
+                "examData": [
+                    {
+                        "examResult": "15.3",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "谷草转氨酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "8-40"
+                    },
+                    {
+                        "examResult": "45",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "肌酸激酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "20-174"
+                    },
+                    {
+                        "examResult": "14",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "肌酸激酶MB同工酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0-18"
+                    },
+                    {
+                        "examResult": "216",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "乳酸脱氢酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "109--245"
+                    },
+                    {
+                        "examResult": "171",
+                        "examResultUnit": "U/L",
+                        "indicatorName": "α羟丁酸脱氢酶",
+                        "indicatorNameMap": null,
+                        "referenceResult": "72-182"
+                    }
+                ],
+                "examItem": "血液",
+                "reportTime": null,
+                "sampleCollectTime": "1532385504000"
+            },
+            {
+                "examData": [
+                    {
+                        "examResult": "2.2",
+                        "examResultUnit": "%",
+                        "indicatorName": "嗜酸性粒细胞比率",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.4-8"
+                    },
+                    {
+                        "examResult": "12.2",
+                        "examResultUnit": "%",
+                        "indicatorName": "血小板体积分布宽度",
+                        "indicatorNameMap": null,
+                        "referenceResult": "15.5-18.1"
+                    },
+                    {
+                        "examResult": "9.5",
+                        "examResultUnit": "10^9/L",
+                        "indicatorName": "白细胞计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "3.5--9.5"
+                    },
+                    {
+                        "examResult": "0.6",
+                        "examResultUnit": "10^9/L",
+                        "indicatorName": "单核细胞计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.1-0.6"
+                    },
+                    {
+                        "examResult": "0.5",
+                        "examResultUnit": "%",
+                        "indicatorName": "嗜碱性粒细胞比率",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0-1"
+                    },
+                    {
+                        "examResult": "0.21",
+                        "examResultUnit": "10^9/L",
+                        "indicatorName": "嗜酸性粒细胞计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.02-0.52"
+                    },
+                    {
+                        "examResult": "32.6",
+                        "examResultUnit": "pg",
+                        "indicatorName": "平均血红蛋白含量",
+                        "indicatorNameMap": null,
+                        "referenceResult": "27-34"
+                    },
+                    {
+                        "examResult": "94.8",
+                        "examResultUnit": "fl",
+                        "indicatorName": "红细胞平均体积",
+                        "indicatorNameMap": null,
+                        "referenceResult": "82-100"
+                    },
+                    {
+                        "examResult": "13.0",
+                        "examResultUnit": "%",
+                        "indicatorName": "红细胞体积分布宽度",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0-14"
+                    },
+                    {
+                        "examResult": "10.9",
+                        "examResultUnit": "fl",
+                        "indicatorName": "血小板平均体积",
+                        "indicatorNameMap": null,
+                        "referenceResult": "9.4-12.5"
+                    },
+                    {
+                        "examResult": "344",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "平均血红蛋白浓度",
+                        "indicatorNameMap": null,
+                        "referenceResult": "316-354"
+                    },
+                    {
+                        "examResult": "41.9",
+                        "examResultUnit": "%",
+                        "indicatorName": "红细胞压积",
+                        "indicatorNameMap": null,
+                        "referenceResult": "35-45"
+                    },
+                    {
+                        "examResult": "0.05",
+                        "examResultUnit": "10^9/L",
+                        "indicatorName": "嗜碱性粒细胞计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0-0.06"
+                    },
+                    {
+                        "examResult": "144",
+                        "examResultUnit": "g/L",
+                        "indicatorName": "血红蛋白",
+                        "indicatorNameMap": null,
+                        "referenceResult": "115-150"
+                    },
+                    {
+                        "examResult": "3.2",
+                        "examResultUnit": "10^9/L",
+                        "indicatorName": "淋巴细胞计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "1.1-3.2"
+                    },
+                    {
+                        "examResult": "253",
+                        "examResultUnit": "10^9/L",
+                        "indicatorName": "血小板计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "125-350"
+                    },
+                    {
+                        "examResult": "0.28",
+                        "examResultUnit": "%",
+                        "indicatorName": "血小板压积",
+                        "indicatorNameMap": null,
+                        "referenceResult": "0.11-0.282"
+                    },
+                    {
+                        "examResult": "4.42",
+                        "examResultUnit": "10^12/L",
+                        "indicatorName": "红细胞计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "3.8-5.1"
+                    },
+                    {
+                        "examResult": "6.6",
+                        "examResultUnit": "%",
+                        "indicatorName": "单核细胞百分率",
+                        "indicatorNameMap": null,
+                        "referenceResult": "3-10"
+                    },
+                    {
+                        "examResult": "5.5",
+                        "examResultUnit": "10^9/L",
+                        "indicatorName": "中性粒细胞计数",
+                        "indicatorNameMap": null,
+                        "referenceResult": "1.8-6.3"
+                    },
+                    {
+                        "examResult": "57.5",
+                        "examResultUnit": "%",
+                        "indicatorName": "中性粒细胞百分率",
+                        "indicatorNameMap": null,
+                        "referenceResult": "40-70"
+                    },
+                    {
+                        "examResult": "33.2",
+                        "examResultUnit": "%",
+                        "indicatorName": "淋巴细胞百分率",
+                        "indicatorNameMap": null,
+                        "referenceResult": "20-50"
+                    }
+                ],
+                "examItem": "血液",
+                "reportTime": null,
+                "sampleCollectTime": "1532298849000"
+            }
+        ],
+        "isShowERMbutton": true,
+        "leftTaskNum": null,
+        "messages": [
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "cctest",
+                "groupNoSetsStr": "4261479",
+                "id": "397386526993940481",
+                "isDrugRule": 0,
+                "isProhibitSave": 1,
+                "message": "是",
+                "problemCode": null,
+                "severity": 8,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "cctest",
+                "groupNoSetsStr": "4300394",
+                "id": "397386556492480512",
+                "isDrugRule": 0,
+                "isProhibitSave": 1,
+                "message": "否",
+                "problemCode": null,
+                "severity": 8,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "推荐剂量：本品宜一次1-2滴，一日3-5次。",
+                "analysisResultType": "用法用量",
+                "drug": "珍珠明目滴眼液",
+                "groupNoSetsStr": "4327501",
+                "id": "397386567448002560",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "每次给药剂量不合适。",
+                "problemCode": "2-5",
+                "severity": 5,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "使用注意事项",
+                "drug": "注射用环磷酰胺",
+                "groupNoSetsStr": "4300392",
+                "id": "397386551220240384",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "输注持续时间，根据容量不同从30分钟至2小时。",
+                "problemCode": null,
+                "severity": 4,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "使用注意事项",
+                "drug": "注射用环磷酰胺",
+                "groupNoSetsStr": "4300392",
+                "id": "397386551400595456",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "本品在输注时，应避免阳光直射。 ",
+                "problemCode": null,
+                "severity": 4,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "使用注意事项",
+                "drug": "注射用环磷酰胺",
+                "groupNoSetsStr": "4300392",
+                "id": "397386551484481536",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "序贯输注本品和其它药物时，给药之间应充分冲洗输注管。 ",
+                "problemCode": null,
+                "severity": 4,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "请谨慎使用。",
+                "analysisResultType": "不良反应提示",
+                "drug": "兰索拉唑肠溶片",
+                "groupNoSetsStr": "4273271",
+                "id": "397386532366843904",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "CFDA药品不良反应信息通报：警惕质子泵抑制剂的骨折、低镁血症风险以及与氯吡格雷的相互作用。此外，英国MHRA警示质子泵抑制剂有引起亚急性皮肤型红斑狼疮风险。",
+                "problemCode": null,
+                "severity": 3,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "慎用。",
+                "analysisResultType": "老年人",
+                "drug": "注射用环磷酰胺",
+                "groupNoSetsStr": "4300392",
+                "id": "397386551379623936",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "老年人慎用。",
+                "problemCode": "2-2",
+                "severity": 3,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "应注意相关风险。",
+                "analysisResultType": "不良反应提示",
+                "drug": "注射用环磷酰胺",
+                "groupNoSetsStr": "4300392",
+                "id": "397386551442538496",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "CFDA药品不良反应信息通报：日本PDMA警示环磷酰胺的横纹肌溶解症风险。",
+                "problemCode": null,
+                "severity": 3,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "请谨慎使用，应注意肝功能、肾功能、血常规监测。",
+                "analysisResultType": "不良反应提示",
+                "drug": "雷公藤多苷片",
+                "groupNoSetsStr": "4339724",
+                "id": "397386574339244032",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "CFDA药品不良反应信息通报：关注雷公藤制剂的用药安全：严重不良反应为药物性肝炎、肾功能不全、粒细胞减少、白细胞减少、血小板减少等。",
+                "problemCode": null,
+                "severity": 3,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "谨慎使用。",
+                "analysisResultType": "老年人",
+                "drug": "雷公藤多苷片",
+                "groupNoSetsStr": "4339724",
+                "id": "397386574360215552",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "老年患者慎用。",
+                "problemCode": "2-2",
+                "severity": 3,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "不主张合用。",
+                "analysisResultType": "相互作用提示",
+                "drug": "阿司匹林肠溶片",
+                "groupNoSetsStr": "4339893",
+                "id": "397386575865970688",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": " 醋酸泼尼松片治疗过程中会减少血液中 阿司匹林肠溶片的浓度。",
+                "problemCode": null,
+                "severity": 3,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "2%分析测试",
+                "groupNoSetsStr": "4261479",
+                "id": "397386526931025920",
+                "isDrugRule": 0,
+                "isProhibitSave": 0,
+                "message": "2%分析测试",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "1%管理测试",
+                "groupNoSetsStr": "4261479",
+                "id": "397386526951997440",
+                "isDrugRule": 0,
+                "isProhibitSave": 0,
+                "message": "1%管理测试",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "请输入诊断。",
+                "analysisResultType": "诊断为空",
+                "drug": "处方点评项",
+                "groupNoSetsStr": "4261479",
+                "id": "397386526972968960",
+                "isDrugRule": 0,
+                "isProhibitSave": 0,
+                "message": "诊断不能为空。",
+                "problemCode": "1-1,1-10",
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "注射药物",
+                "drug": "处方点评项",
+                "groupNoSetsStr": "4261481",
+                "id": "397386531448291328",
+                "isDrugRule": 0,
+                "isProhibitSave": 0,
+                "message": "葡萄糖注射液,注射用盐酸川芎嗪注射药物统计",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "输液药物",
+                "drug": "处方点评项",
+                "groupNoSetsStr": "4261481",
+                "id": "397386531507011584",
+                "isDrugRule": 0,
+                "isProhibitSave": 0,
+                "message": "输液药物统计。",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "质子泵抑制剂",
+                "drug": "处方点评项",
+                "groupNoSetsStr": "4273271",
+                "id": "397386532333289472",
+                "isDrugRule": 0,
+                "isProhibitSave": 0,
+                "message": "质子泵抑制剂统计。",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "氯化钠注射液",
+                "groupNoSetsStr": "4300392",
+                "id": "397386551299932160",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "呼吸内科",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "珍珠明目滴眼液",
+                "groupNoSetsStr": "4327501",
+                "id": "397386567427031040",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "呼吸内科",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "珍珠明目滴眼液",
+                "groupNoSetsStr": "4327501",
+                "id": "397386567464779776",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "呼吸内科",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "雷公藤多苷片",
+                "groupNoSetsStr": "4339724",
+                "id": "397386574196637696",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "呼吸内科",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            },
+            {
+                "advice": "",
+                "analysisResultType": "",
+                "drug": "雷公藤多苷片",
+                "groupNoSetsStr": "4339724",
+                "id": "397386574284718080",
+                "isDrugRule": 1,
+                "isProhibitSave": 0,
+                "message": "呼吸内科",
+                "problemCode": null,
+                "severity": 0,
+                "status": 0,
+                "zoneId": 1
+            }
+        ],
+        "nextOrPrevious": null,
+        "operations": null,
+        "patientInfo": {
+            "address": "***",
+            "age": "68岁",
+            "allergyList": null,
+            "bedNo": "03",
+            "birthDay": "1949-10-16",
+            "birthWeight": null,
+            "bsa": "",
+            "caseNo": null,
+            "ccr": null,
+            "dischargeDate": "2018-07-26 08:13:41",
+            "docGroup": null,
+            "eventNo": "45637713",
+            "feeType": "自费",
+            "height": "",
+            "hospitalName": "鼓楼医院",
+            "inDeptName": "呼吸内科",
+            "inDeptTime": "2018-07-22 09:49:23",
+            "inHospitalDays": 4,
+            "inWardName": "11B病区",
+            "isBreastFeeding": "",
+            "isDialysis": null,
+            "isPregnant": "",
+            "outDeptName": "呼吸内科",
+            "outWardName": "11B病区",
+            "patientId": "4563771",
+            "patientName": "***",
+            "phoneNo": "***",
+            "sex": "女",
+            "timeOfPreg": null,
+            "weight": ""
+        },
+        "recipeCategoryFlag": 0
+    },
+    "rel": null,
+    "statusCode": 200
+}
