@@ -385,6 +385,14 @@ $(function () {
             '<li>' +
             '<span class="title">是否透析：</span>' +
             '<span class="content" title="' + patient.isDialysis + '">' + (patient.isDialysis || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">贴数：</span>' +
+            '<span class="content" title="' + patient.herbPacketCount + '">' + (patient.herbPacketCount || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">单贴进入：</span>' +
+            '<span class="content" title="' + patient.herbUnitPrice + '">' + (patient.herbUnitPrice || "") + '</span>' +
             '</li></ul>'
         $('#patientInfo').append(patientInfoDom);
     }

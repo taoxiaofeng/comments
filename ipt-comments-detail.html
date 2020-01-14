@@ -31,14 +31,56 @@
                 <div class="tab">
                     <div class="tab-wrap">
                         <ul class="tab-menu">
-                            <li class="active"><a href="javascript:;">西/成药处方</a></li>
+                            <li class="active"><a href="javascript:;">西/成药医嘱</a></li>
+                            <li><a href="javascript:;">草药医嘱</a></li>
                             <li><a href="javascript:;">检验记录</a></li>
                             <li><a href="javascript:;">手术记录</a></li>
+                            <li><a href="javascript:;">诊断记录</a></li>
                         </ul>
                     </div>
                     <div class="tab-box">
-                        <!-- 西成药/处方 -->
+                        <!-- 西成药/医嘱 -->
                         <div class="tab-content show">
+                            <div class="table-box">
+                                <div id="theadDiv">
+                                    <table id="grid1" class="fixedTable">
+                                        <thead id="_thead">
+
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div id="tbodyDiv">
+                                    <table id="grid2">
+                                        <tbody id="_tbody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="pagination">
+                                <div style="float: left;">
+                                    <span>共 96 条</span>
+                                    <select class="ip-input" id="pageSize">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                                <div style="float: right;">
+                                    <span>1/5页</span>
+                                    <button id="firstPage"><img src="./assets/first-page-icon.png" alt=""></button>
+                                    <button id="prevPage"><img src="./assets/prev-page-icon.png" alt=""></button>
+                                    <button id="nextPage"><img src="./assets/next-page-icon.png" alt=""></button>
+                                    <button id="lastPage"><img src="./assets/last-page-icon.png" alt=""></button>
+                                    <input type="text" id="skipInput">
+                                    <button id="skipBtn">跳转</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 草药处方 -->
+                        <div class="tab-content">
                             <div class="table-box">
                                 <div id="theadDiv">
                                     <table id="grid1" class="fixedTable">
@@ -101,6 +143,24 @@
                                 </tbody>
                             </table>
                         </div>
+                        <!-- 检验记录 -->
+                        <div class="tab-content" id="diagnosisRecord">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>诊断名称</th>
+                                        <th>诊断时间</th>
+                                        <th>诊断医生</th>
+                                        <th>诊断类别</th>
+                                        <th>诊断类型</th>
+                                        <th>诊断ICD编码</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="diagnosisRecordTbody">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,7 +215,7 @@
             </div>
         </div>
     </div>
-    <script src="./opt-comments-detail.js"></script>
+    <script src="./ipt-comments-detail.js"></script>
 </body>
 
 </html>

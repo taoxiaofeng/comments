@@ -147,6 +147,24 @@ div.search-box {
     table-layout: fixed;
 }
 
+#_tbody a {
+    color: #108EE9;
+    cursor: pointer;
+}
+
+#_tbody span {
+    color: #999999;
+}
+
+#_tbody td,
+#_tbody span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
 
 /* 这里hidden是用于隐藏滚动条  */
 #theadDiv {
@@ -206,7 +224,6 @@ div.search-box {
     padding: 0 10px;
     width: 1105px;
     height: 46px;
-    margin: 0 10px;
     line-height: 46px;
     border: 1px solid #D9D9D9;
 }
@@ -297,7 +314,11 @@ div.search-box {
 
 .patient-info>ul>li {
     float: left;
-    min-width: 194px;
+    width: 184px;
+    min-width: 184px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .patient-info .title {
@@ -305,6 +326,7 @@ div.search-box {
     text-align: left;
     display: inline-block;
 }
+
 
 #msgBox {
     width: 29%;
@@ -326,6 +348,12 @@ div.search-box {
     height: 50px;
     line-height: 50px;
     border-bottom: 1px solid #D9D9D9;
+}
+
+.msg-list {
+    height: 450px;
+    max-height: 450px;
+    overflow: auto;
 }
 
 #msgBox>.complaints-opinion,
@@ -391,14 +419,26 @@ div.search-box {
     margin-right: 5px;
 }
 
-#inspectionRecord > div {
-    padding:10px;
+#inspectionRecord>div {
     width: 100%;
-    border: 1px solid #D9D9D9;
+    margin-bottom: 10px;
 }
 
-#inspectionRecord > div li {
+#inspectionRecord>div li {
     display: inline-block;
+    margin-right: 36px;
+}
+
+#inspectionRecord ul {
+    height: 46px;
+    line-height: 3.28;
+    padding-left: 10px;
+    border: 1px solid #D9D9D9;
+    border-bottom: 0;
+}
+
+#inspectionRecord ul .title {
+    color: #999999;
 }
 
 /************************选项卡样式********************************/
@@ -467,6 +507,7 @@ a {
 }
 
 .tab .tab-content {
+    /* width: 100%; */
     padding: 10px;
     display: none;
     float: left;

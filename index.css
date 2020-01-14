@@ -83,8 +83,10 @@ table td {
 
 table th {
     font-weight: inherit;
-    border-bottom-width: 2px;
-    border-bottom-color: #ccc;
+    background-color: #FAFAF9;
+    text-align: left;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 img {

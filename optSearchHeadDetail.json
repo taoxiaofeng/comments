@@ -700,7 +700,68 @@
             }
         ],
         "nextOrPrevious": null,
-        "operations": null,
+        "operations": [
+            {
+                "operationCode": "手术编码(ICD9-CM3)",
+                "operationName": "手术名称",
+                "operationOrderTime": "手术日期",
+                "operationCutType": "切口类别",
+                "incisionHealingCode": "切口愈合状况",
+                "hasImplant": "是否有植入物",
+                "operationStartTime": "手术开始时间",
+                "operationEndTime": "手术结束时间"
+            },
+            {
+                "operationCode": "手术编码(ICD9-CM3)",
+                "operationName": "手术名称",
+                "operationOrderTime": "手术日期",
+                "operationCutType": "切口类别",
+                "incisionHealingCode": "切口愈合状况",
+                "hasImplant": "是否有植入物",
+                "operationStartTime": "手术开始时间",
+                "operationEndTime": "手术结束时间"
+            },
+            {
+                "operationCode": "手术编码(ICD9-CM3)",
+                "operationName": "手术名称",
+                "operationOrderTime": "手术日期",
+                "operationCutType": "切口类别",
+                "incisionHealingCode": "切口愈合状况",
+                "hasImplant": "是否有植入物",
+                "operationStartTime": "手术开始时间",
+                "operationEndTime": "手术结束时间"
+            },
+            {
+                "operationCode": "手术编码(ICD9-CM3)",
+                "operationName": "手术名称",
+                "operationOrderTime": "手术日期",
+                "operationCutType": "切口类别",
+                "incisionHealingCode": "切口愈合状况",
+                "hasImplant": "是否有植入物",
+                "operationStartTime": "手术开始时间",
+                "operationEndTime": "手术结束时间"
+            },
+            {
+                "operationCode": "手术编码(ICD9-CM3)",
+                "operationName": "手术名称",
+                "operationOrderTime": "手术日期",
+                "operationCutType": "切口类别",
+                "incisionHealingCode": "切口愈合状况",
+                "hasImplant": "是否有植入物",
+                "operationStartTime": "手术开始时间",
+                "operationEndTime": "手术结束时间"
+            },
+            {
+                "operationCode": "手术编码(ICD9-CM3)",
+                "operationName": "手术名称",
+                "operationOrderTime": "手术日期",
+                "operationCutType": "切口类别",
+                "incisionHealingCode": "切口愈合状况",
+                "hasImplant": "是否有植入物",
+                "operationStartTime": "手术开始时间",
+                "operationEndTime": "手术结束时间"
+            }
+        ],
         "patientInfo": {
             "address": null,
             "age": "40岁",

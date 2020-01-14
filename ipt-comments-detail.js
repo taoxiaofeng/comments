@@ -70,9 +70,9 @@ $(function () {
      */
     function getTableData() {
         $.ajax({
-            url: "./detailOptdrugInfo.json", success: function (res) {
-                if (res.obj && res.obj.length > 0) {
-                    setTbody(res.obj);
+            url: "./detailIptdrugInfo.json", success: function (res) {
+                if (res.obj && res.obj.dataList.length > 0) {
+                    setTbody(res.obj.dataList);
                 }
             }
         });
@@ -152,9 +152,9 @@ $(function () {
     });
 
     // 设置诊断记录
-    function getOptDetails() {
+    function getIptDetails() {
         $.ajax({
-            url: "./optSearchHeadDetail.json", success: function (res) {
+            url: "./iptSearchHeadDetail_2.json", success: function (res) {
                 if (res && res.obj) {
                     // 检验
                     if (res.obj.hasOwnProperty('exams') && res.obj.exams) {
@@ -172,24 +172,44 @@ $(function () {
                     if (res.obj.hasOwnProperty('operations') && res.obj.operations) {
                         setOperations(res.obj.operations);
                     }
+                    // 诊断
+                    if(res.obj.hasOwnProperty('dtoCydpIptDaignoses') && res.obj.dtoCydpIptDaignoses) {
+                        setDtoCydpIptDaignoses(res.obj.dtoCydpIptDaignoses)
+                    }
                 }
             }
         });
     };
+
+    function setDtoCydpIptDaignoses(dtoCydpIptDaignoses) {
+        var list = "";
+        for (let i = 0; i < dtoCydpIptDaignoses.length; i++) {
+            list += '<tr>';
+            list += '<td>' + (dtoCydpIptDaignoses[i].diagnosisName || '') + '</td>';
+            list += '<td>' + (dtoCydpIptDaignoses[i].diagnosisTime || '') + '</td>';
+            list += '<td>' + (dtoCydpIptDaignoses[i].docName || '') + '</td>';
+            list += '<td>' + (dtoCydpIptDaignoses[i].diagnosisType || '') + '</td>';
+            list += '<td>' + (dtoCydpIptDaignoses[i].diagnosisCategory || '') + '</td>';
+            list += '<td>' + (dtoCydpIptDaignoses[i].diagnosisCode || '') + '</td>';
+            list += '</tr>';
+
+        }
+        $('#diagnosisRecordTbody').append(list);
+    }
 
     // 设置手术
     function setOperations(operations) {
         var list = "";
         for (let i = 0; i < operations.length; i++) {
             list += '<tr>';
-            list += '<td>' + operations[i].operationOrderTime + '</td>';
-            list += '<td>' + operations[i].operationCode + '</td>';
-            list += '<td>' + operations[i].operationName + '</td>';
-            list += '<td>' + operations[i].operationCutType + '</td>';
-            list += '<td>' + operations[i].incisionHealingCode + '</td>';
-            list += '<td>' + operations[i].hasImplant + '</td>';
-            list += '<td>' + operations[i].operationStartTime + '</td>';
-            list += '<td>' + operations[i].operationEndTime + '</td>';
+            list += '<td>' + (operations[i].operationOrderTime || '') + '</td>';
+            list += '<td>' + (operations[i].operationCode || '') + '</td>';
+            list += '<td>' + (operations[i].operationName || '') + '</td>';
+            list += '<td>' + (operations[i].operationCutType || '') + '</td>';
+            list += '<td>' + (operations[i].incisionHealingCode || '') + '</td>';
+            list += '<td>' + (operations[i].hasImplant || '') + '</td>';
+            list += '<td>' + (operations[i].operationStartTime || '') + '</td>';
+            list += '<td>' + (operations[i].operationEndTime || '') + '</td>';
             list += '</tr>';
 
         }
@@ -278,10 +298,6 @@ $(function () {
             '<span>' + patient.patientName + (patient.age ? ' / ' + patient.age : ' / -岁 ') + (patient.sex ? ' / ' + patient.sex : '-') + (patient.height ? ' / ' + patient.height : ' / -cm ') + (patient.weight ? ' / ' + patient.weight : ' / -kg ') + '</span>' +
             '</div >' +
             '<div>' +
-            '<span class="title">诊断：</span>' +
-            '<span class="content" title="' + diagnose + '">' + diagnose + '</span>' +
-            '</div>' +
-            '<div>' +
             '<span class="title">过敏：</span>' +
             '<span class="content" title="' + patient.allergyList + '">' + (patient.allergyList || "") + '</span>' +
             '</div>' +
@@ -295,16 +311,16 @@ $(function () {
             '<span class="content" title="' + patient.eventNo + '">' + (patient.eventNo || "") + '</span>' +
             '</li>' +
             '<li>' +
-            '<span class="title">处方号：</span>' +
-            '<span class="content" title="' + patient.recipeNo + '">' + (patient.recipeNo || "") + '</span>' +
+            '<span class="title">就诊医院：</span>' +
+            '<span class="content" title="' + patient.hospitalName + '">' + (patient.hospitalName || "") + '</span>' +
             '</li>' +
             '<li>' +
-            '<span class="title">科室：</span>' +
-            '<span class="content" title="' + patient.deptName + '">' + (patient.deptName || "") + '</span>' +
+            '<span class="title">病案号：</span>' +
+            '<span class="content" title="' + patient.caseNo + '">' + (patient.caseNo || "") + '</span>' +
             '</li>' +
             '<li>' +
-            '<span class="title">医生：</span>' +
-            '<span class="content" title="' + patient.docName + '">' + (patient.docName || "") + '</span>' +
+            '<span class="title">医疗组：</span>' +
+            '<span class="content" title="' + patient.docGroup + '">' + (patient.docGroup || "") + '</span>' +
             '</li>' +
             '</ul>' +
             '<ul>' +
@@ -335,8 +351,34 @@ $(function () {
             '<span class="content" title="' + patient.bsa + '">' + (patient.bsa || "") + '</span>' +
             '</li>' +
             '<li>' +
-            '<span class="title">CCR：</span>' +
-            '<span class="content" title="' + patient.ccr + '">' + (patient.ccr || "") + '</span>' +
+            '<span class="title">入院时间：</span>' +
+            '<span class="content" title="' + patient.inDeptTime + '">' + (patient.inDeptTime || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">入院科室：</span>' +
+            '<span class="content" title="' + patient.inDeptName + '">' + (patient.inDeptName || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">入院病区：</span>' +
+            '<span class="content"  title="' + patient.inWardName + '">' + (patient.inWardName || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">出院时间：</span>' +
+            '<span class="content" title="' + patient.dischargeDate + '">' + (patient.dischargeDate || "") + '</span>' +
+            '</li>' +
+            '</ul>' +
+            '<ul>' +
+            '<li>' +
+            '<span class="title">出院科室：</span>' +
+            '<span class="content" title="' + patient.outDeptName + '">' + (patient.outDeptName || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">出院病区：</span>' +
+            '<span class="content" title="' + patient.outWardName + '">' + (patient.outWardName || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">住院天数：</span>' +
+            '<span class="content" title="' + patient.inHospitalDays + '">' + (patient.inHospitalDays || "") + '</span>' +
             '</li>' +
             '<li>' +
             '<span class="title">费用类别：</span>' +
@@ -344,47 +386,21 @@ $(function () {
             '</li>' +
             '<li>' +
             '<span class="title">患者电话：</span>' +
-            '<span class="content"  title="' + patient.phoneNo + '">' + (patient.phoneNo || "") + '</span>' +
-            '</li>' +
-            '<li>' +
-            '<span class="title">患者地址：</span>' +
-            '<span class="content" title="' + patient.address + '">' + (patient.address || "") + '</span>' +
+            '<span class="content" title="' + patient.phoneNo + '">' + (patient.phoneNo || "") + '</span>' +
             '</li>' +
             '</ul>' +
             '<ul>' +
-            '<li>' +
-            '<span class="title">处方时间：</span>' +
-            '<span class="content" title="' + patient.recipeTime + '">' + (patient.recipeTime || "") + '</span>' +
-            '</li>' +
-            '<li>' +
-            '<span class="title">处方类型：</span>' +
-            '<span class="content" title="' + patient.recipeCategory + '">' + (patient.recipeCategory || "") + '</span>' +
-            '</li>' +
-            '<li>' +
-            '<span class="title">处方来源：</span>' +
-            '<span class="content" title="' + patient.recipeSource + '">' + (patient.recipeSource || "") + '</span>' +
-            '</li>' +
-            '<li>' +
-            '<span class="title">医生职称：</span>' +
-            '<span class="content" title="' + patient.docTitle + '">' + (patient.docTitle || "") + '</span>' +
-            '</li>' +
-            '<li>' +
-            '<span class="title">审核药师：</span>' +
-            '<span class="content" title="' + patient.checkPharmName + '">' + (patient.checkPharmName || "") + '</span>' +
-            '</li>' +
-            '</ul>' +
-            '<ul>' +
-            '<li>' +
-            '<span class="title">调配药师：</span>' +
-            '<span class="content" title="' + patient.prepPharmName + '">' + (patient.prepPharmName || "") + '</span>' +
-            '</li>' +
-            '<li>' +
-            '<span class="title">核发药师：</span>' +
-            '<span class="content" title="' + patient.despensingPharmName + '">' + (patient.despensingPharmName || "") + '</span>' +
-            '</li>' +
             '<li>' +
             '<span class="title">是否透析：</span>' +
             '<span class="content" title="' + patient.isDialysis + '">' + (patient.isDialysis || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">CCR：</span>' +
+            '<span class="content" title="' + patient.ccr + '">' + (patient.ccr || "") + '</span>' +
+            '</li>' +
+            '<li>' +
+            '<span class="title">床位号：</span>' +
+            '<span class="content" title="' + patient.bedNo + '">' + (patient.bedNo || "") + '</span>' +
             '</li></ul>'
         $('#patientInfo').append(patientInfoDom);
     }
@@ -404,7 +420,7 @@ $(function () {
         setThead();
         getTableData();
         setTab();
-        getOptDetails();
+        getIptDetails();
     }());
 
     // TODO  获取数据需要登录接口， 写一个测试接口
