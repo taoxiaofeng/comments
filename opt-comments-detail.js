@@ -1,4 +1,20 @@
 $(function () {
+
+    var projectId = getQueryString('projectId');
+    var docId = getQueryString('docId');
+    var patientId = getQueryString('patientId');
+    var recipeNo = getQueryString('recipeNo');
+    var readStatus = getQueryString('readStatus');
+
+
+    //获取url参数
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]);
+        return undefined;
+    }
+
     var arrTableHead = ['组号', '药品名称', '剂型', '单次剂量', '给药频率', '给药途径', '发药数量', '包装数量', '给药时机', '给药部位', '销售单价', '包装规格', '生产厂家'];
     $.queryParams = {}; // 存储检索数据
     /**
@@ -66,7 +82,7 @@ $(function () {
 
 
     /**
-     * 获取table 数据
+     * 获取 table 数据
      */
     function getTableData() {
         $.ajax({
@@ -410,8 +426,8 @@ $(function () {
     // TODO  获取数据需要登录接口， 写一个测试接口
     function login() {
         var params = {
-            name: "fengxiaotao",
-            password: md5('111111'),
+            name: "admin",
+            password: md5('ipharmacare'),
             code: ""
         }
         // $.post("/api/v1/currentUser", params, function (json) {

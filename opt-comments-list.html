@@ -22,23 +22,23 @@
                 <span>测试账号</span>
             </div>
         </div>
-        <div>
+        <div style="padding: 10px;">
             <div class="opt-project-detail">
                 <div><span>项目名称：</span>医生处方点评项目</div>
                 <div><span>患者号：</span>1234567890</div>
                 <div class="search-box">
                     <div>
-                        <label for="recipe_id">处方号：</label>
-                        <input class="ip-input" type="text" id="recipe_id">
+                        <label for="recipe_no">处方号：</label>
+                        <input class="ip-input" type="text" id="recipe_no">
                     </div>
                     <div>
-                        <label for="review_status">医生审阅状态：</label>
-                        <!-- <input class="ip-input" type="text" id="review_status"> -->
-                        <select class="ip-input" id="review_status">
-                            <option value="全部" selected>全部</option>
-                            <option value="未处理">未处理</option>
-                            <option value="无异议">无异议</option>
-                            <option value="已申述">已申述</option>
+                        <label for="read_status">医生审阅状态：</label>
+                        <!-- <input class="ip-input" type="text" id="read_status"> -->
+                        <select class="ip-input" id="read_status">
+                            <option value="" selected>全部</option>
+                            <option value="0">未处理</option>
+                            <option value="1">无异议</option>
+                            <option value="2">已申述</option>
                         </select>
                     </div>
                     <button id="query">检索</button>
@@ -50,13 +50,12 @@
                         <thead id="_thead">
 
                         </thead>
-
                     </table>
                 </div>
                 <div id="tbodyDiv">
                     <table id="grid2">
-                        <tbody id="_tbody">
-
+                        <tbody id="opt_tbody">
+                            
                         </tbody>
                     </table>
                 </div>
@@ -82,7 +81,7 @@
                     <button id="skipBtn">跳转</button>
                 </div>
             </div>
-        </div>
+        </div s>
     </div>
     <div id="kabulore-layer">
         <div class="box_container">

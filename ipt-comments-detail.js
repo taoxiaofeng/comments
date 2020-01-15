@@ -1,23 +1,23 @@
 $(function () {
     var arrTableHead = ['组号', '药品名称', '剂型', '单次剂量', '给药频率', '给药途径', '发药数量', '包装数量', '给药时机', '给药部位', '销售单价', '包装规格', '生产厂家'];
-    $.queryParams = {}; // 存储检索数据
+    var herbTableHead = ['组号', '药品名称', '剂型', '医嘱类型', '单次剂量', '给药频率', '给药途径', '生效时间', '失效时间', '科室', '医生', '医生职称', '发药数量', '包装规格', '销售单价', '总价', '煎法', '生产厂家', '包装数量'];
     /**
      * 设置表头
      */
-    function setThead() {
+    function setThead(domId, tableHead) {
         var theadList = [];
         theadList.push('<tr>');
-        for (var i = 0; i < arrTableHead.length; i++) {
+        for (var i = 0; i < tableHead.length; i++) {
             theadList.push('<th>');
-            theadList.push(arrTableHead[i]);
+            theadList.push(tableHead[i]);
             theadList.push('</th>');
         }
         theadList.push('</tr>');
-        $('#_thead').html(theadList.join(""));
+        $(domId).html(theadList.join(""));
     };
 
     /**
-     * 设置表内容
+     * 设置西/成药表格内容
      */
     function setTbody(tbodyList) {
         for (var i = 0; i < tbodyList.length; i++) {
@@ -29,34 +29,42 @@ $(function () {
         $('#tbodyDiv').on('scroll', function () {
             $("#theadDiv").scrollLeft($('#tbodyDiv').scrollLeft());
         });
+    };
 
-        $('#_tbody').on('click', 'tr span#view', function (e) {
-            console.log('view:', e)
-        })
+    /**
+     * 设置西/成药表格内容
+     */
+    function setHerbTbody(tbodyList) {
+        var list = '';
+        for (var i = 0; i < tbodyList.length; i++) {
+            list += '<tr>';
+            list += '<td title="' + tbodyList[i]['groupNo'] + '">' + (tbodyList[i]['groupNo'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['drugName'] + '\xa0\xa0\xa0' + tbodyList[i]['drugNameMap'] + '"><a>' + (tbodyList[i]['drugName'] || '') + '</a><br/><span>' + (tbodyList[i]['drugNameMap'] || '') + '</span></td>';
+            list += '<td title="' + tbodyList[i]['prep'] + '\xa0\xa0\xa0' + tbodyList[i]['prepMap'] + '">' + (tbodyList[i]['prep'] || '') + '<br/><span>' + (tbodyList[i]['prepMap'] || '') + '</span></td>';
+            list += '<td title="' + tbodyList[i]['orderType'] +'">' + (tbodyList[i]['orderType'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['drugDose'] + '">' + (tbodyList[i]['drugDose'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['drugUsingFreq'] + '\xa0\xa0\xa0' + tbodyList[i]['drugUsingFreqMap'] + '">' + (tbodyList[i]['drugUsingFreq'] || '') + '<br/><span>' + (tbodyList[i]['drugUsingFreqMap'] || '') + '</span></td>';
+            list += '<td title="' + tbodyList[i]['drugAdminRouteName'] + '\xa0\xa0\xa0' + tbodyList[i]['drugUsidrugAdminRouteNameMapngFreqMap'] + '">' + (tbodyList[i]['drugAdminRouteName'] || '') + '<br/><span>' + (tbodyList[i]['drugUsidrugAdminRouteNameMapngFreqMap'] || '') + '</span></td>';
+            list += '<td title="' + tbodyList[i]['validTime'] + '">' + (tbodyList[i]['validTime'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['invalidTime'] + '">' + (tbodyList[i]['invalidTime'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['deptName'] + '">' + (tbodyList[i]['deptName'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['docName'] + '">' + (tbodyList[i]['docName'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['docTitle'] + '">' + (tbodyList[i]['docTitle'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['despensingNum'] + '">' + (tbodyList[i]['despensingNum'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['packUnit'] + '">' + (tbodyList[i]['packUnit'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['price'] + '">' + (tbodyList[i]['price'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['feeTotal'] + '">' + (tbodyList[i]['feeTotal'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['specialPrompt'] + '">' + (tbodyList[i]['specialPrompt'] || '') + '</td>';
+            list += '<td title="' + tbodyList[i]['producerName'] + '\xa0\xa0\xa0' + tbodyList[i]['producerNameMap'] + '">' + (tbodyList[i]['producerName'] || '') + '<br/><span>' + (tbodyList[i]['producerNameMap'] || '') + '</span></td>';
+            list += '<td title="' + tbodyList[i]['countUnit'] + '">' + (tbodyList[i]['countUnit'] || '') + '</td>';
+            list += '</tr>';
+            // 把创建出来的$tr 添加到tbody中
+        }
+        $('#herb_tbody').append(list);
 
-        $('#_tbody').on('click', 'tr span#withoutDemur', function (e) {
-            console.log('withoutDemur:', e)
-        })
-
-        $('#_tbody').on('click', 'tr span#appeal', function (e) {
-            console.log('appeal:', e)
-            $(".box_container").show();
-            $("#kabulore-layer").layer();
-        })
-
-        // 关闭申述框
-        $('.close-appeal').click(function () {
-            closeAppealBox();
+        $('#tbodyDiv').on('scroll', function () {
+            $("#theadDiv").scrollLeft($('#tbodyDiv').scrollLeft());
         });
-
-        // 保存申述
-        $('#save-appeal').click(function () {
-            console.log($('#appeal-content').val());
-
-            // 保存成功后关闭申述弹框
-            closeAppealBox();
-        });
-
     };
 
     function closeAppealBox() {
@@ -64,15 +72,28 @@ $(function () {
         $('#layerBox').remove();
     }
 
-
     /**
-     * 获取table 数据
+     * 获取西/成药医嘱 数据
      */
-    function getTableData() {
+    function getWesternMedicineTableData() {
         $.ajax({
             url: "./detailIptdrugInfo.json", success: function (res) {
                 if (res.obj && res.obj.dataList.length > 0) {
                     setTbody(res.obj.dataList);
+                }
+            }
+        });
+    };
+
+
+    /**
+     * 获取西/成药医嘱 数据
+     */
+    function getHerbTableData() {
+        $.ajax({
+            url: "./detailIptdrugInfo_herb.json", success: function (res) {
+                if (res && res.length > 0) {
+                    setHerbTbody(res);
                 }
             }
         });
@@ -92,16 +113,6 @@ $(function () {
             window.event.cancelBubble = true;
         }
     }
-
-    /**
-     * 检索逻辑
-     */
-
-    $('#query').click(function () {
-        $.queryParams.recipeId = $('#recipe_id').val();
-        $.queryParams.reviewStatus = $('#review_status').val();
-        console.log($.queryParams)
-    });
 
     // 翻页相关逻辑
     /**
@@ -173,7 +184,7 @@ $(function () {
                         setOperations(res.obj.operations);
                     }
                     // 诊断
-                    if(res.obj.hasOwnProperty('dtoCydpIptDaignoses') && res.obj.dtoCydpIptDaignoses) {
+                    if (res.obj.hasOwnProperty('dtoCydpIptDaignoses') && res.obj.dtoCydpIptDaignoses) {
                         setDtoCydpIptDaignoses(res.obj.dtoCydpIptDaignoses)
                     }
                 }
@@ -288,12 +299,6 @@ $(function () {
 
     // 设置患者信息
     function setPatientInfo(patient) {
-        var diagnose = '', allergy = '';
-        // 拼装诊断数据
-        if (patient.hasOwnProperty('diagnoses') && patient.diagnoses) {
-            diagnose = assemblyData(patient.diagnoses, 'originalDiagnose');
-        }
-
         var patientInfoDom = '<div>' +
             '<span>' + patient.patientName + (patient.age ? ' / ' + patient.age : ' / -岁 ') + (patient.sex ? ' / ' + patient.sex : '-') + (patient.height ? ' / ' + patient.height : ' / -cm ') + (patient.weight ? ' / ' + patient.weight : ' / -kg ') + '</span>' +
             '</div >' +
@@ -417,8 +422,10 @@ $(function () {
 
     (function init() {
         login();
-        setThead();
-        getTableData();
+        setThead('#_thead', arrTableHead); // 设置西/成药表格title
+        setThead('#herb_thead', herbTableHead); // 设置草药表格title
+        getWesternMedicineTableData(); // 获取西/成药表格内容
+        getHerbTableData(); // 获取 草药表格内容
         setTab();
         getIptDetails();
     }());

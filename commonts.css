@@ -33,9 +33,9 @@
 
 .table-box {
     position: relative;
-    width: 1140px;
+    width: 1385px;
     height: 700px;
-    margin: auto;
+    /* margin: auto; */
     background-color: white;
     border-collapse: collapse;
     overflow: auto;
@@ -75,9 +75,8 @@
 }
 
 .opt-project-detail {
-    width: 1110px;
-    height: 64px;
-    padding: 10px 10px 0;
+    width: 1345px;
+    margin: 10px;
 }
 
 .opt-project-detail>div {
@@ -107,6 +106,7 @@ div.search-box {
     float: right;
     height: 30px;
     width: 60px;
+    margin-right: 10px;
     border: 1px solid #D9D9D9;
     border-radius: 4px;
 }
@@ -143,21 +143,27 @@ div.search-box {
 
 #grid1,
 #grid2 {
-    width: 1110px;
+    width: 1345px;
     table-layout: fixed;
 }
 
-#_tbody a {
+#_tbody a,
+#opt_tbody a,
+#herb_tbody a {
     color: #108EE9;
     cursor: pointer;
 }
 
-#_tbody span {
+#_tbody span,
+#opt_tbody span,
+#herb_tbody span {
     color: #999999;
 }
 
 #_tbody td,
-#_tbody span {
+#herb_tbody td,
+#_tbody span,
+#herb_tbody span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -168,11 +174,11 @@ div.search-box {
 
 /* 这里hidden是用于隐藏滚动条  */
 #theadDiv {
-    width: 1110px;
+    width: 1345px;
 }
 
 #tbodyDiv {
-    width: 1127px;
+    width: 1362px;
     /*增加了滚动条的宽度*/
 }
 
@@ -209,20 +215,20 @@ div.search-box {
     opacity: .6;
 } */
 
-.operation {
-    color: #2037FB;
+span.operation {
+    color: #2037FB !important;
     cursor: pointer;
     margin-right: 5px;
 }
 
-.operation:active,
-.operation:focus {
+span.operation:active,
+span.operation:focus {
     opacity: .6;
 }
 
 .pagination {
     padding: 0 10px;
-    width: 1105px;
+    width: 1345px;
     height: 46px;
     line-height: 46px;
     border: 1px solid #D9D9D9;
